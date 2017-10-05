@@ -1,0 +1,27 @@
+.flat-button.caption4.formLeft.delay600.text-center {
+    padding-top: 84px;
+}
+
+.flat-caption.caption2.formLeft.delay400.text-center {
+    padding-top: 45px;
+}
+
+.flat-image img {
+    margin-left: 73px;
+}
+
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus, .nav .dropdown-hover a, .nav .dropdown-hover a:hover {
+    text-align: center;
+}
+
+.mega-menu, .navbar-nav > li > .dropdown-menu {
+    min-width: 200px;
+}
+
+.shippingbox {
+    text-align: center;
+}
+
+.dathang {
+    width: 60%;
+}
