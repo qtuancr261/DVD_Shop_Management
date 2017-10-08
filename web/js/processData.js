@@ -39,14 +39,21 @@ function checkInfoBeforeLogin()
     {
         var xmlhttp = new XMLHttpRequest(); //dung de gui DL den webserver
         xmlhttp.onreadystatechange = function () { // listen for state changes
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200 && xmlhttp.responseText.trim() == "OK") 
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
             { // when completed we can move away
-                window.location = "index.html";
+                //sessionStorage.username = userEmail;
+                
+                var messenge = xmlhttp.responseText.trim();
+                if (messenge == "OK")
+                {
+                    alert(messenge);
+                    sessionStorage.username = userEmail;
+                    window.location = "index.html";
+                }
+                else
+                    alert("Đăng nhập thất bại, vui lòng kiểm tra lại thông tin...");
             }
-            else if (xmlhttp.readyState == 4 && xmlhttp.status == 200 && xmlhttp.responseText.trim() == "ERORR")
-            {
-                alert("Đăng nhập thất bại, vui lòng kiểm tra lại thông tin...");
-            }
+           
             
         }
         xmlhttp.open("get", "jsp/loginAccount.jsp?userEmailLogin=" + userEmail + "&userPWDLogin=" + userPWD, true);
@@ -66,3 +73,19 @@ function checkInfoBeforeLogin()
     }
 }
 
+function validateLoginForm()
+{
+    var userEmail = document.forms["loginForm"]["userEmailLogin"].value;
+    var userPWD = document.forms["loginForm"]["userPWDLogin"].value;
+    if (userEmail == "" || userPWD == "")
+    {
+        alert("Nhap day du thong tin....");
+        return false;
+    }
+    else
+    {
+        sessionStorage.username = userEmail;
+        return true;
+    }
+    
+}
