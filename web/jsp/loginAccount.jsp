@@ -27,10 +27,11 @@
     ResultSet record = stm.executeQuery(queryStm);
     if (record.next())
     {
-        out.print("OK");
+        response.sendRedirect("../index.html");
     } else
     {
         out.print("ERORR");
     }
+    record.close();
 %>
 
