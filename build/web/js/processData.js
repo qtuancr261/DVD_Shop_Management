@@ -39,37 +39,36 @@ function checkInfoBeforeLogin()
     {
         var xmlhttp = new XMLHttpRequest(); //dung de gui DL den webserver
         xmlhttp.onreadystatechange = function () { // listen for state changes
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) 
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
             { // when completed we can move away
                 //sessionStorage.username = userEmail;
-                
+
                 var messenge = xmlhttp.responseText.trim();
                 if (messenge == "OK")
                 {
                     alert(messenge);
                     sessionStorage.username = userEmail;
                     window.location = "index.html";
-                }
-                else
+                } else
                     alert("Đăng nhập thất bại, vui lòng kiểm tra lại thông tin...");
             }
-           
-            
+
+
         }
         xmlhttp.open("get", "jsp/loginAccount.jsp?userEmailLogin=" + userEmail + "&userPWDLogin=" + userPWD, true);
         //gửi yêu cầu
         xmlhttp.send();
         //Nhận thông báo từ file JSP gửi về
         /*var rs = xmlhttp.responseText.trim();
-        alert(rs);
-        if (rs == "OK")
-        {
-            //xmlhttp.open("get", "index.html", false);
-            //xmlhttp.send();
-            //document.write(xmlhttp.responseText);
-
-        } else
-            alert("Đăng nhập thất bại, vui lòng kiểm tra lại thông tin...");*/
+         alert(rs);
+         if (rs == "OK")
+         {
+         //xmlhttp.open("get", "index.html", false);
+         //xmlhttp.send();
+         //document.write(xmlhttp.responseText);
+         
+         } else
+         alert("Đăng nhập thất bại, vui lòng kiểm tra lại thông tin...");*/
     }
 }
 
@@ -81,11 +80,78 @@ function validateLoginForm()
     {
         alert("Nhap day du thong tin....");
         return false;
-    }
-    else
+    } else
     {
         sessionStorage.username = userEmail;
         return true;
     }
-    
+}
+function loadHotProducts()
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("get", "jsp/loadHotSaleProduct.jsp?type=hot", false);
+    xmlhttp.send();
+    if (xmlhttp.responseText.trim() == "empty") {
+                    document.getElementById("hot").innerHTML = "Impossible" ;
+                    return;
+                }
+    var listProductsJSON = JSON.parse(xmlhttp.responseText);
+
+    var listHotProducts = "";
+    for (var i = 0; i < listProductsJSON.length; i++)
+    {
+        switch (i % 4)
+        {
+            case 0:
+                listHotProducts += "<li>" +
+                        "<div class=\"row\">" +
+                        "<div class=\"col-md-3 col-sm-6\">" +
+                        "<div class=\"products\">" +
+                        "<div class=\"offer\">- %20</div>" +
+                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
+                        "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
+                        "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
+                        "</div>" +
+                        "</div>";
+                break;
+            case 1:
+                listHotProducts += "" +
+                        "<div class=\"col-md-3 col-sm-6\">" +
+                        "<div class=\"products\">" +
+                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
+                        "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
+                        "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
+                        "</div>" +
+                        "</div>";
+                break;
+            case 2:
+                listHotProducts += "" +
+                        "<div class=\"col-md-3 col-sm-6\">" +
+                        "<div class=\"products\">" +
+                        "<div class=\"offer\">Mới</div>" +
+                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
+                        "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
+                        "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
+                        "</div>" +
+                        "</div>";
+                break;
+            case 3:
+                listHotProducts += "" +
+                        "<div class=\"col-md-3 col-sm-6\">" +
+                        "<div class=\"products\">" +
+                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
+                        "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
+                        "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
+                        "</div>" +
+                        "</div>" + 
+                        "</div>" +
+                        "</li>";
+                break;
+        }
+    }
+    document.getElementById("hot").innerHTML = listHotProducts;
 }
