@@ -34,11 +34,10 @@
                                     <ul class="usermenu">
                                         <li><a href="checkout.html" class="log" id="loginButton">Đăng nhập</a></li>
                                         <script>
-                                            if(!sessionStorage.username)
+                                            if (!sessionStorage.username)
                                             {
                                                 document.getElementById('loginButton').innerHTML = "Đăng nhập";
-                                            }
-                                            else
+                                            } else
                                                 document.getElementById("loginButton").innerHTML = sessionStorage.username;
                                         </script>
                                         <li><a href="checkout2.html" class="reg" id="registerButton">Đăng kí</a></li>
@@ -207,7 +206,7 @@
                     <h3 class="title">SẢN PHẨM <strong>BÁN CHẠY</strong></h3>
                     <div class="control"><a id="prev_hot" class="prev" href="#">&lt;</a><a id="next_hot" class="next" href="#">&gt;</a></div>
                     <ul id="hot">
-                        
+
                     </ul>
                 </div>
                 <div class="clearfix"></div>
