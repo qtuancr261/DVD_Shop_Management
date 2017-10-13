@@ -1,8 +1,9 @@
 <%-- 
-    Document   : loadHotSaleProduct
-    Created on : Oct 9, 2017, 2:50:29 PM
+    Document   : loadNewProduct
+    Created on : Oct 13, 2017, 11:55:59 PM
     Author     : thieuquangtuan
 --%>
+
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
@@ -23,7 +24,7 @@
             "jdbc:mysql://localhost:3306/CUAHANG_BANGDIA?useUnicode=true&characterEncoding=utf8", "root", "thematrix141");
     //Tạo ra đối tượng thực thi các câu lệnh SQL
     Statement stm = con.createStatement();
-    ResultSet rs = stm.executeQuery("select TenSP,GiaSP,imgSRC from SANPHAM");
+    ResultSet rs = stm.executeQuery("select TenSP,GiaSP,imgSRC from SANPHAM order by NgayNhapSP desc limit 12");
     if (!rs.next())
     {
         out.print("empty");
@@ -47,3 +48,4 @@
     rs.close();
     out.print(s);//goi cho browser chuoi json
 %>
+
