@@ -89,14 +89,13 @@ function validateLoginForm()
 function loadHotProducts()
 {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("get", "jsp/loadHotSaleProduct.jsp?type=hot", false);
+    xmlhttp.open("get", "jsp/loadProduct.jsp?type=hot", false);
     xmlhttp.send();
     if (xmlhttp.responseText.trim() == "empty") {
-                    document.getElementById("hot").innerHTML = "Impossible" ;
-                    return;
-                }
+        document.getElementById("hot").innerHTML = "Impossible";
+        return;
+    }
     var listProductsJSON = JSON.parse(xmlhttp.responseText);
-
     var listHotProducts = "";
     for (var i = 0; i < listProductsJSON.length; i++)
     {
@@ -147,7 +146,7 @@ function loadHotProducts()
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
                         "</div>" +
-                        "</div>" + 
+                        "</div>" +
                         "</div>" +
                         "</li>";
                 break;
@@ -159,14 +158,13 @@ function loadHotProducts()
 function loadNewProducts()
 {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("get", "jsp/loadNewProduct.jsp?type=hot", false);
+    xmlhttp.open("get", "jsp/loadProduct.jsp?type=new", false);
     xmlhttp.send();
     if (xmlhttp.responseText.trim() == "empty") {
-                    document.getElementById("hot").innerHTML = "Impossible" ;
-                    return;
-                }
+        document.getElementById("hot").innerHTML = "Impossible";
+        return;
+    }
     var listProductsJSON = JSON.parse(xmlhttp.responseText);
-
     var listHotProducts = "";
     for (var i = 0; i < listProductsJSON.length; i++)
     {
@@ -216,11 +214,54 @@ function loadNewProducts()
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
                         "</div>" +
-                        "</div>" + 
+                        "</div>" +
                         "</div>" +
                         "</li>";
                 break;
         }
     }
     document.getElementById("featured").innerHTML = listHotProducts;
+}
+
+function setCategory(name)
+{
+    sessionStorage.category = name;
+}
+
+function loadSpecificProducts()
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("get", "jsp/loadProduct.jsp?type=" + sessionStorage.category, false);
+    xmlhttp.send();
+    if (xmlhttp.responseText.trim() == "empty") {
+        alert("NNNONNONOON");
+        return;
+    }
+    var listProductsJSON = JSON.parse(xmlhttp.responseText);
+    var listHotProducts = "";
+    for (var i = 0; i < listProductsJSON.length; i++)
+    {
+        listHotProducts += "<div class=\"col-md-4 col-sm-6\">" +
+                "<div class=\"products\">" +
+                "<div class=\"thumbnail\">" +
+                "<a href=\"details.html\">" +
+                "<img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\">" +
+                "</a>" +
+                "</div>" +
+                "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
+                "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
+                "<div class=\"button_group\">" +
+                "<button class=\"button add-cart\" type=\"button\" onClick=\"location.href = 'cart.html'\">Thêm vào giỏ</button>" +
+                "<button class=\"button compare\" type=\"button\">" +
+                "<i class=\"fa fa-exchange\"></i>" +
+                "</button>" +
+                "<button class=\"button wishlist\" type=\"button\">" +
+                "<i class=\"fa fa-heart-o\"></i>" +
+                "</button>" +
+                "</div>" +
+                "</div>" +
+                "</div>"
+    }
+    //alert(listHotProducts);
+    document.getElementById("categoryProducts").innerHTML = listHotProducts;
 }
