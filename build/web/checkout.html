@@ -1,401 +1,413 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="shortcut icon" href="images/logo1.jpg">
-      <title>Băng đĩa | Sự lựa chọn thông minh</title>
-      <link href="css/bootstrap.css" rel="stylesheet">
-      <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
-      <link href="css/font-awesome.min.css" rel="stylesheet">
-      <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen"/>
-      <link href="css/sequence-looptheme.css" rel="stylesheet" media="all"/>
-      <link href="css/style.css" rel="stylesheet">
-      <link href="css/css.css" rel="stylesheet">
-      <script src="js/processData.js"></script>
-      <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
-   </head>
-  <body>
-    <div class="wrapper">
-      <div class="header">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-2 col-lg-2">
-              <div class="logo">
-                <a href="index.html">
-                  <img src="images/Logo1.PNG" alt="Bangdia">
-                </a>
-              </div>
-            </div>
-            <div class="col-md-10 col-lg-10">
-              <div class="header_top">
-                <div class="row">
-                  <div class="col-md-7 col-lg-7"></div>
-                  <div class="col-md-5 col-lg-5">
-                    <ul class="usermenu">
-                       <li><a href="checkout.html" class="log">Đăng nhập</a></li>
-                       <li><a href="checkout2.html" class="reg">Đăng kí</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="clearfix"></div>
-               <div class="header_bottom">
-                  <ul class="option">
-                     <li id="search" class="search">
-                        <form><input class="search-submit" type="submit" value=""><input class="search-input" placeholder="Nhập sp bạn muốn tìm..." type="text" value="" name="search"></form>
-                     </li>
-                     <li class="option-cart">
-                        <a href="cart.html" class="cart-icon">cart <span class="cart_no">02</span></a>
-                        <ul class="option-cart-item">
-                           <li>
-                              <div class="cart-item">
-                                 <div class="image"><img src="images/logo1.jpg" alt=""></div>
-                                 <div class="item-description">
-                                    <p class="name">Từ Đó Khôn Nguôi - Thái Hiền</p>
-                                    <p>Định dạng: <span class="light-red">Audio CD</span><br>Số lượng: <span class="light-red">01</span></p>
-                                 </div>
-                                 <div class="right">
-                                    <p class="price">117.000VNĐ</p>
-                                    <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
-                                 </div>
-                              </div>
-                           </li>
-                           <li>
-                              <div class="cart-item">
-                                 <div class="image"><img src="images/logo1.jpg" alt=""></div>
-                                 <div class="item-description">
-                                    <p class="name">The Smurfs 2 - Xì Trum 2</p>
-                                    <p>Định dạng: <span class="light-red">DVD</span><br>Số lượng: <span class="light-red">01</span></p>
-                                 </div>
-                                 <div class="right">
-                                    <p class="price">30.000VNĐ</p>
-                                    <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
-                                 </div>
-                              </div>
-                           </li>
-                           <li><span class="total">Tổng <strong>147.000VND</strong></span><button class="checkout" onClick="location.href='cart.html'">Mua ngay</button></li>
-                        </ul>
-                     </li>
-                  </ul>
-                  <div class="navbar-header">
-                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                     </button>
-                  </div>
-                  <div class="navbar-collapse collapse">
-                     <ul class="nav navbar-nav">
-                        <li><a href="index.html">TRANG CHỦ</a></li>
-                        <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">PHÂN LOẠI</a>
-                           <div class="dropdown-menu mega-menu">
-                              <div class="row">
-                                  <ul class="mega-menu-links">
-                                     <li><a href="productgird.html">Đĩa Nhạc</a></li>
-                                     <li><a href="productgird.html">Đĩa Phim</a></li>
-                                     <li><a href="productgird.html">Đĩa Game</a></li>
-                                     <li><a href="productgird.html">Đĩa Phần Mềm</a></li>
-                                  </ul>
-                              </div>
-                           </div>
-                        </li>
-                        <li><a href="productgird.html">MỚI NHẤT</a></li>
-                        <li><a href="productgird.html">BÁN CHẠY</a></li>
-                        <li><a href="productgird.html">KHUYẾN MÃI</a></li>
-                        <li class="dropdown">
-                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">DỊCH VỤ</a>
-                           <div class="dropdown-menu mega-menu">
-                              <div class="row">
-                                 <ul class="mega-menu-links">
-                                       <li><a href="productgird.html">Mua bán-Cho thuê</a></li>
-                                       <li><a href="productgird.html">In-Ghi đĩa</a></li>
-                                    </ul>
-                              </div>
-                           </div>
-                        </li>
-                        <li><a href="contact.html">LIÊN HỆ</a></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-          </div>
-        </div>
-        <div class="clearfix">
-        </div>
-        <div class="page-index">
-          <div class="container">
-            <p>
-              Trang chủ - Trợ giúp
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="clearfix">
-      </div>
-      <div class="container_fullwidth">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="special-deal leftbar" style="margin-top:0;">
-                <h4 class="title">
-                  Sản phẩm 
-                  <strong>
-                    Nổi bật
-                  </strong>
-                </h4>
-                <div class="special-item">
-                  <div class="product-image">
-                    <a href="#">
-                      <img src="images/products/thum/Musics/Boyzone.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="product-info">
-                    <p>
-                      Nhớ Người Yêu - Trường Vũ
-                    </p>
-                    <h5 class="price">
-                      48.000VNĐ
-                    </h5>
-                  </div>
-                </div>
-                <div class="special-item">
-                  <div class="product-image">
-                    <a href="#">
-                      <img src="images/products/thum/Musics/BSB_Millenium.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="product-info">
-                    <p>
-                      Nhớ Người Yêu - Trường Vũ
-                    </p>
-                    <h5 class="price">
-                      48.000VNĐ
-                    </h5>
-                  </div>
-                </div>
-                <div class="special-item">
-                  <div class="product-image">
-                    <a href="#">
-                      <img src="images/products/thum/Musics/BSB_NeverGone.jpg" alt="">
-                    </a>
-                  </div>
-                  <div class="product-info">
-                    <p>
-                      Nhớ Người Yêu - Trường Vũ
-                    </p>
-                    <h5 class="price">
-                      48.000VNĐ
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div class="clearfix">
-              </div>
-              <div class="fbl-box leftbar">
-                <h3 class="title">
-                  Facebook
-                </h3>
-                <span class="likebutton">
-                  <a href="#">
-                    <img src="images/fblike.png" alt="">
-                  </a>
-                </span>
-                <p>
-                  12k lượt thích.
-                </p>
-                <ul>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                    </a>
-                  </li>
-                </ul>
-                <div class="fbplug">
-                  <a href="#">
-                    <span>
-                      <img src="images/fbicon.png" alt="">
-                    </span>
-                    Đăng nhập vào Facebook
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-9">
-              <div class="checkout-page">
-                <ol class="checkout-steps">
-                  <li class="steps active">
-                    <a href="checkout.html" class="step-title">
-                      01. Phương thức thanh toán
-                    </a>
-                    <div class="step-description">
-                      <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                          <div class="new-customer">
-                            <h5>
-                              ĐĂNG NHẬP ĐỂ MUA HÀNG
-                            </h5>
-                            <label>
-                              <span class="input-radio">
-                                <input type="radio" name="user">
-                              </span>
-                              <span class="text">
-                                Tôi đã có tài khoản tại Bangdia.vn
-                              </span>
-                            </label>
-                            <label>
-                              <span class="input-radio">
-                                <input type="radio" name="user">
-                              </span>
-                              <span class="text">
-                                Đặt hàng không cần đăng nhập.
-                              </span>
-                            </label>
-                            <p class="requir">
-                              Bằng cách tạo một tài khoản, bạn sẽ có thể mua sắm hàng ngày được cập nhật về tình trạng của đơn đặt hàng và theo dõi các đơn đặt hàng mà bạn đã thực hiện trước đó.
-                            </p>
-                            <button>
-                              Tiếp tục
-                            </button>
-                          </div>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                          <div class="run-customer">
-                            <h5>
-                              Thông tin của bạn
-                            </h5>
-                              <form name="loginForm" action="jsp/loginAccount.jsp" onsubmit="return validateLoginForm()" method="post">
-                              <div class="form-row">
-                                <label class="lebel-abs">
-                                  Email 
-                                  <strong class="red">
-                                    *
-                                  </strong>
-                                </label>
-                                <input type="text" class="input namefild" name="userEmailLogin">
-                              </div>
-                              <div class="form-row">
-                                <label class="lebel-abs">
-                                  Mật khẩu 
-                                  <strong class="red">
-                                    *
-                                  </strong>
-                                </label>
-                                <input type="password" class="input namefild" name="userPWDLogin">
-                              </div>
-                              <p class="forgoten">
-                                <a href="#">
-                                  Quên mật khẩu?
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/logo1.jpg">
+        <title>Băng đĩa | Sự lựa chọn thông minh</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+        <link href="css/sequence-looptheme.css" rel="stylesheet" media="all" />
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/css.css" rel="stylesheet">
+        <script src="js/processData.js"></script>
+        <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="images/Logo1.PNG" alt="Bangdia">
                                 </a>
-                              </p>
-                              <input type="submit" value="Đăng nhập">
-                            </form>
-                          </div>
+                            </div>
                         </div>
-                      </div>
+                        <div class="col-md-10 col-lg-10">
+                            <div class="header_top">
+                                <div class="row">
+                                    <div class="col-md-7 col-lg-7"></div>
+                                    <div class="col-md-5 col-lg-5">
+                                        <ul class="usermenu">
+                                            <li><a href="checkout.html" class="log">Đăng nhập</a></li>
+                                            <li><a href="checkout2.html" class="reg">Đăng kí</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="header_bottom">
+                                <ul class="option">
+                                    <li id="search" class="search">
+                                        <form><input class="search-submit" type="submit" value=""><input class="search-input" placeholder="Nhập sp bạn muốn tìm..." type="text" value="" name="search"></form>
+                                    </li>
+                                    <li class="option-cart">
+                                        <a href="cart.html" class="cart-icon">cart <span class="cart_no">02</span></a>
+                                        <ul class="option-cart-item">
+                                            <li>
+                                                <div class="cart-item">
+                                                    <div class="image"><img src="images/logo1.jpg" alt=""></div>
+                                                    <div class="item-description">
+                                                        <p class="name">Từ Đó Khôn Nguôi - Thái Hiền</p>
+                                                        <p>Định dạng: <span class="light-red">Audio CD</span><br>Số lượng: <span class="light-red">01</span></p>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="price">117.000VNĐ</p>
+                                                        <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="cart-item">
+                                                    <div class="image"><img src="images/logo1.jpg" alt=""></div>
+                                                    <div class="item-description">
+                                                        <p class="name">The Smurfs 2 - Xì Trum 2</p>
+                                                        <p>Định dạng: <span class="light-red">DVD</span><br>Số lượng: <span class="light-red">01</span></p>
+                                                    </div>
+                                                    <div class="right">
+                                                        <p class="price">30.000VNĐ</p>
+                                                        <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li><span class="total">Tổng <strong>147.000VND</strong></span><button class="checkout" onClick="location.href = 'cart.html'">Mua ngay</button></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="index.html">TRANG CHỦ</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PHÂN LOẠI</a>
+                                            <div class="dropdown-menu mega-menu">
+                                                <div class="row">
+                                                    <ul class="mega-menu-links">
+                                                        <li><a href="productgird.html" onclick="setCategory('ALBUM')">Đĩa Nhạc</a></li>
+                                                        <li><a href="productgird.html" onclick="setCategory('MOVIE')">Đĩa Phim</a></li>
+                                                        <li><a href="productgird.html" onclick="setCategory('GAME')">Đĩa Game</a></li>
+                                                        <li><a href="productgird.html" onclick="setCategory('SOFT')">Đĩa Phần Mềm</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li><a href="productgird.html" onclick="setCategory('new')">MỚI NHẤT</a></li>
+                                        <li><a href="productgird.html" onclick="setCategory('hot')">BÁN CHẠY</a></li>
+                                        <li><a href="productgird.html">KHUYẾN MÃI</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">DỊCH VỤ</a>
+                                            <div class="dropdown-menu mega-menu">
+                                                <div class="row">
+                                                    <ul class="mega-menu-links">
+                                                        <li><a href="productgird.html">Mua bán-Cho thuê</a></li>
+                                                        <li><a href="productgird.html">In-Ghi đĩa</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li><a href="contact.html">LIÊN HỆ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </li>
-                  <li class="steps">
-                    <a href="checkout2.html" class="step-title">
-                      02. Thông tin nhận hàng
-                    </a>
-                  </li>
-                  <li class="steps">
-                    <a href="#" class="step-title">
-                      03. Đặt hàng
-                    </a>
-                  </li>
-                </ol>
-              </div>
+                </div>
+                <div class="clearfix">
+                </div>
+                <div class="page-index">
+                    <div class="container">
+                        <p>
+                            Trang chủ - Trợ giúp
+                        </p>
+                    </div>
+                </div>
             </div>
-          </div>
-      </div>
-      <div class="clearfix"></div>
-       <div class="footer">
-          <div class="footer-info">
-             <div class="container">
-                <div class="row">
-                   <div class="col-md-3">
-                      <div class="footer-logo"><a href="#"><img src="images/Logo1.PNG" alt=""></a></div>
-                   </div>
-                   <div class="col-md-5 col-sm-6">
-                      <h4 class="title">LIÊN HỆ <strong>VỚI CHÚNG TÔI</strong></h4>
-                      <p>97 Man Thiên, phường Hiệp Phú, quận 9, Hồ Chí Minh</p>
-                      <p>SĐT : 0909090909</p>
-                      <p>Email : bangdiabanmoinha@gmail.com</p>
-                   </div>
-                   <div class="col-md-3">
-                      <h4 class="title"><strong>Newsletter </strong></h4>
-                      <p>Đăng kí ngay để nhận được các thông tin khuyến mãi và ưu đãi đặc biệt từ:<strong> bangdiabanmoinha.com </strong> </p>
-                      <form class="newsletter">
-                   <input type="text" name="" placeholder="Email của bạn....">
-                   <input type="submit" value="OK" class="button">
-                </form>
-                   </div>
+            <div class="clearfix">
+            </div>
+            <div class="container_fullwidth">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="special-deal leftbar" style="margin-top:0;">
+                                <h4 class="title">
+                                    Sản phẩm
+                                    <strong>
+                                        Nổi bật
+                                    </strong>
+                                </h4>
+                                <div class="special-item">
+                                    <div class="product-image">
+                                        <a href="#">
+                                            <img src="images/products/thum/Musics/Boyzone.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-info">
+                                        <p>
+                                            Nhớ Người Yêu - Trường Vũ
+                                        </p>
+                                        <h5 class="price">
+                                            48.000VNĐ
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="special-item">
+                                    <div class="product-image">
+                                        <a href="#">
+                                            <img src="images/products/thum/Musics/BSB_Millenium.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-info">
+                                        <p>
+                                            Nhớ Người Yêu - Trường Vũ
+                                        </p>
+                                        <h5 class="price">
+                                            48.000VNĐ
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="special-item">
+                                    <div class="product-image">
+                                        <a href="#">
+                                            <img src="images/products/thum/Musics/BSB_NeverGone.jpg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-info">
+                                        <p>
+                                            Nhớ Người Yêu - Trường Vũ
+                                        </p>
+                                        <h5 class="price">
+                                            48.000VNĐ
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="fbl-box leftbar">
+                                <h3 class="title">
+                                    Facebook
+                                </h3>
+                                <span class="likebutton">
+                                    <a href="#">
+                                        <img src="images/fblike.png" alt="">
+                                    </a>
+                                </span>
+                                <p>
+                                    12k lượt thích.
+                                </p>
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="fbplug">
+                                    <a href="#">
+                                        <span>
+                                            <img src="images/fbicon.png" alt="">
+                                        </span> Đăng nhập vào Facebook
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="checkout-page">
+                                <ol class="checkout-steps">
+                                    <li class="steps active">
+                                        <a href="checkout.html" class="step-title">
+                                            01. Phương thức thanh toán
+                                        </a>
+                                        <div class="step-description">
+                                            <div class="row">
+                                                <div class="col-md-6 col-sm-6">
+                                                    <div class="new-customer">
+                                                        <h5>
+                                                            ĐĂNG NHẬP ĐỂ MUA HÀNG
+                                                        </h5>
+                                                        <label>
+                                                            <span class="input-radio">
+                                                                <input type="radio" name="user">
+                                                            </span>
+                                                            <span class="text">
+                                                                Tôi đã có tài khoản tại Bangdia.vn
+                                                            </span>
+                                                        </label>
+                                                        <label>
+                                                            <span class="input-radio">
+                                                                <input type="radio" name="user">
+                                                            </span>
+                                                            <span class="text">
+                                                                Đặt hàng không cần đăng nhập.
+                                                            </span>
+                                                        </label>
+                                                        <p class="requir">
+                                                            Bằng cách tạo một tài khoản, bạn sẽ có thể mua sắm hàng ngày được cập nhật về tình trạng của đơn đặt hàng và theo dõi các đơn đặt hàng mà bạn đã thực hiện trước đó.
+                                                        </p>
+                                                        <button>
+                                                            Tiếp tục
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <div class="run-customer">
+                                                        <h5>
+                                                            Thông tin của bạn
+                                                        </h5>
+                                                        <form name="loginForm" action="jsp/loginAccount.jsp" onsubmit="return validateLoginForm()" method="post">
+                                                            <div class="form-row">
+                                                                <label class="lebel-abs">
+                                                                    Email 
+                                                                    <strong class="red">
+                                                                        *
+                                                                    </strong>
+                                                                </label>
+                                                                <input type="text" class="input namefild" name="userEmailLogin">
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <label class="lebel-abs">
+                                                                    Mật khẩu 
+                                                                    <strong class="red">
+                                                                        *
+                                                                    </strong>
+                                                                </label>
+                                                                <input type="password" class="input namefild" name="userPWDLogin">
+                                                            </div>
+                                                            <p class="forgoten">
+                                                                <a href="#">
+                                                                    Quên mật khẩu?
+                                                                </a>
+                                                            </p>
+                                                            <input type="submit" value="Đăng nhập">
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="steps">
+                                        <a href="checkout2.html" class="step-title">
+                                            02. Thông tin nhận hàng
+                                        </a>
+                                    </li>
+                                    <li class="steps">
+                                        <a href="#" class="step-title">
+                                            03. Đặt hàng
+                                        </a>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-             </div>
-          </div>
-          <div class="copyright-info">
-             <div class="container">
-                <div class="row">
-                   <div class="col-md-6">
-                      <p>Copyright © Your Website 2017 <a href="#"></a>. </p>
-                   </div>
-                   <div class="col-md-6">
-                      <ul class="social-icon">
-                         <li><a href="#" class="linkedin"></a></li>
-                         <li><a href="#" class="google-plus"></a></li>
-                         <li><a href="#" class="twitter"></a></li>
-                         <li><a href="#" class="facebook"></a></li>
-                      </ul>
-                   </div>
+                <div class="clearfix"></div>
+                <div class="footer">
+                    <div class="footer-info">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="footer-logo">
+                                        <a href="#"><img src="images/Logo1.PNG" alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-sm-6">
+                                    <h4 class="title">LIÊN HỆ <strong>VỚI CHÚNG TÔI</strong></h4>
+                                    <p>97 Man Thiên, phường Hiệp Phú, quận 9, Hồ Chí Minh</p>
+                                    <p>SĐT : 0909090909</p>
+                                    <p>Email : bangdiabanmoinha@gmail.com</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 class="title"><strong>Newsletter </strong></h4>
+                                    <p>Đăng kí ngay để nhận được các thông tin khuyến mãi và ưu đãi đặc biệt từ:<strong> bangdiabanmoinha.com </strong> </p>
+                                    <form class="newsletter">
+                                        <input type="text" name="" placeholder="Email của bạn....">
+                                        <input type="submit" value="OK" class="button">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="copyright-info">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>Copyright © Your Website 2017
+                                        <a href="#"></a>. </p>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="social-icon">
+                                        <li>
+                                            <a href="#" class="linkedin"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="google-plus"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="twitter"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="facebook"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-             </div>
-          </div>
-       </div>
-    </div>
-  </div>
-    <!-- Bootstrap core JavaScript==================================================-->
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js">
-    </script>
-    <script type="text/javascript" src="js/bootstrap.min.js">
-    </script>
-    <script defer src="js/jquery.flexslider.js">
-    </script>
-    <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js">
-    </script>
-    <script type="text/javascript" src="js/script.min.js" >
-    </script>
-  </body>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript==================================================-->
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js">
+        </script>
+        <script type="text/javascript" src="js/bootstrap.min.js">
+        </script>
+        <script defer src="js/jquery.flexslider.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js">
+        </script>
+        <script type="text/javascript" src="js/script.min.js">
+        </script>
+    </body>
+
 </html>

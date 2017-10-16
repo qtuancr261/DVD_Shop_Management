@@ -89,14 +89,13 @@ function validateLoginForm()
 function loadHotProducts()
 {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("get", "jsp/loadHotSaleProduct.jsp?type=hot", false);
+    xmlhttp.open("get", "jsp/loadProduct.jsp?type=hot", false);
     xmlhttp.send();
     if (xmlhttp.responseText.trim() == "empty") {
-                    document.getElementById("hot").innerHTML = "Impossible" ;
-                    return;
-                }
+        document.getElementById("hot").innerHTML = "Impossible";
+        return;
+    }
     var listProductsJSON = JSON.parse(xmlhttp.responseText);
-
     var listHotProducts = "";
     for (var i = 0; i < listProductsJSON.length; i++)
     {
@@ -108,7 +107,7 @@ function loadHotProducts()
                         "<div class=\"col-md-3 col-sm-6\">" +
                         "<div class=\"products\">" +
                         "<div class=\"offer\">- %20</div>" +
-                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"thumbnail\"><a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
                         "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
@@ -119,7 +118,7 @@ function loadHotProducts()
                 listHotProducts += "" +
                         "<div class=\"col-md-3 col-sm-6\">" +
                         "<div class=\"products\">" +
-                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"thumbnail\"><a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
                         "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
@@ -131,7 +130,7 @@ function loadHotProducts()
                         "<div class=\"col-md-3 col-sm-6\">" +
                         "<div class=\"products\">" +
                         "<div class=\"offer\">Mới</div>" +
-                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"thumbnail\"><a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
                         "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
@@ -142,12 +141,12 @@ function loadHotProducts()
                 listHotProducts += "" +
                         "<div class=\"col-md-3 col-sm-6\">" +
                         "<div class=\"products\">" +
-                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"thumbnail\"><a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\""+ listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
                         "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
                         "</div>" +
-                        "</div>" + 
+                        "</div>" +
                         "</div>" +
                         "</li>";
                 break;
@@ -159,14 +158,13 @@ function loadHotProducts()
 function loadNewProducts()
 {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("get", "jsp/loadNewProduct.jsp?type=hot", false);
+    xmlhttp.open("get", "jsp/loadProduct.jsp?type=new", false);
     xmlhttp.send();
     if (xmlhttp.responseText.trim() == "empty") {
-                    document.getElementById("hot").innerHTML = "Impossible" ;
-                    return;
-                }
+        document.getElementById("hot").innerHTML = "Impossible";
+        return;
+    }
     var listProductsJSON = JSON.parse(xmlhttp.responseText);
-
     var listHotProducts = "";
     for (var i = 0; i < listProductsJSON.length; i++)
     {
@@ -177,7 +175,7 @@ function loadNewProducts()
                         "<div class=\"row\">" +
                         "<div class=\"col-md-3 col-sm-6\">" +
                         "<div class=\"products\">" +
-                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"thumbnail\"><a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
                         "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
@@ -188,7 +186,7 @@ function loadNewProducts()
                 listHotProducts += "" +
                         "<div class=\"col-md-3 col-sm-6\">" +
                         "<div class=\"products\">" +
-                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"thumbnail\"><a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
                         "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
@@ -200,7 +198,7 @@ function loadNewProducts()
                         "<div class=\"col-md-3 col-sm-6\">" +
                         "<div class=\"products\">" +
                         "<div class=\"offer\">Mới</div>" +
-                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"thumbnail\"><a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
                         "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
@@ -211,16 +209,87 @@ function loadNewProducts()
                 listHotProducts += "" +
                         "<div class=\"col-md-3 col-sm-6\">" +
                         "<div class=\"products\">" +
-                        "<div class=\"thumbnail\"><a href=\"details.html\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"thumbnail\"><a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
                         "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
                         "</div>" +
-                        "</div>" + 
+                        "</div>" +
                         "</div>" +
                         "</li>";
                 break;
         }
     }
     document.getElementById("featured").innerHTML = listHotProducts;
+}
+
+function setCategory(name)
+{
+    sessionStorage.category = name;
+    return true;
+}
+
+function loadSpecificProducts()
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("get", "jsp/loadProduct.jsp?type=" + sessionStorage.category, false);
+    xmlhttp.send();
+    if (xmlhttp.responseText.trim() == "empty") {
+        alert("NNNONNONOON");
+        return;
+    }
+    var listProductsJSON = JSON.parse(xmlhttp.responseText);
+    var listHotProducts = "";
+    for (var i = 0; i < listProductsJSON.length; i++)
+    {
+        listHotProducts += "<div class=\"col-md-4 col-sm-6\">" +
+                "<div class=\"products\">" +
+                "<div class=\"thumbnail\">" +
+                "<a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\">" +
+                "</a>" +
+                "</div>" +
+                "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
+                "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
+                "<div class=\"button_group\">" +
+                "<button class=\"button add-cart\" type=\"button\" onClick=\"location.href = 'cart.html'\">Thêm vào giỏ</button>" +
+                "<button class=\"button compare\" type=\"button\">" +
+                "<i class=\"fa fa-exchange\"></i>" +
+                "</button>" +
+                "<button class=\"button wishlist\" type=\"button\">" +
+                "<i class=\"fa fa-heart-o\"></i>" +
+                "</button>" +
+                "</div>" +
+                "</div>" +
+                "</div>"
+    }
+    //alert(listHotProducts);
+    document.getElementById("categoryProducts").innerHTML = listHotProducts;
+}
+
+function setCurrentProductID(element)
+{
+    var id = element.id;
+    //alert(id);
+    sessionStorage.currentProductID = id;
+    //var str = xmlhttp.responseText.trim();
+}
+
+function getCurrentProductInfo()
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("get", "jsp/loadCurrentProductInfo.jsp?id=" + sessionStorage.currentProductID, false);
+    xmlhttp.send();
+    if (xmlhttp.responseText.trim() == "empty") 
+    {
+        document.getElementById("hot").innerHTML = "Impossible";
+        return;
+    }
+    var productInfoJSON = JSON.parse(xmlhttp.responseText);
+    document.getElementById("currentProductName").innerHTML = productInfoJSON[0].TenSP;
+    document.getElementById("currentProductPublisher").innerHTML = productInfoJSON[0].NSX;
+    document.getElementById("currentProductType").innerHTML = productInfoJSON[0].DinhDangSP;
+    document.getElementById("currentProductDescription").innerHTML = productInfoJSON[0].MoTaSP;
+    document.getElementById("currentProductPrice").innerHTML = productInfoJSON[0].GiaSP;
+    var imgSRC = document.getElementById("zoom_03");
+    imgSRC.setAttribute("src",productInfoJSON[0].imgSRC);
 }

@@ -1,8 +1,9 @@
 <%-- 
-    Document   : loadHotSaleProduct
-    Created on : Oct 9, 2017, 2:50:29 PM
+    Document   : loadCurrentProductInfo
+    Created on : Oct 16, 2017, 4:44:33 PM
     Author     : thieuquangtuan
 --%>
+
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
@@ -16,15 +17,17 @@
 <%
     //Phải thêm thư viện MySQL vào project trước khi nạp Driver
     //Nạp Driver của MySQL
-    String exp = request.getParameter("type");
+    String productID = request.getParameter("id");
     Class.forName("com.mysql.jdbc.Driver").newInstance();
     //Thiết lập kết nối với MySQL
     Connection con = DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/CUAHANG_BANGDIA?useUnicode=true&characterEncoding=utf8", "root", "thematrix141");
     //Tạo ra đối tượng thực thi các câu lệnh SQL
     Statement stm = con.createStatement();
-    ResultSet rs = stm.executeQuery("select TenSP,GiaSP,imgSRC from SANPHAM");
-    if (!rs.next())
+    ResultSet result;
+    String sqlCommand = String.format("select TenSP,GiaSP,NSX,DinhDangSP,MoTaSP,imgSRC from SANPHAM where MaSP='%s'", productID);
+    result = stm.executeQuery(sqlCommand);
+    if (!result.next())
     {
         out.print("empty");
         return;
@@ -35,15 +38,18 @@
     {
         // Convert Money
         NumberFormat priceFormat = NumberFormat.getCurrencyInstance(Locale.UK);
-        int price = rs.getInt("GiaSP");
+        int price = result.getInt("GiaSP");
         String formattedPrice = priceFormat.format(price).substring(1) + " VNĐ";
 
-        s += "{\"TenSP\":\"" + rs.getString("TenSP") + "\","
+        s += "{\"TenSP\":\"" + result.getString("TenSP") + "\","
                 + "\"GiaSP\":\"" + formattedPrice + "\","
-                + "\"imgSRC\":\"" + rs.getString("imgSRC") + "\"},";
-    } while (rs.next());
+                + "\"NSX\":\"" + result.getString("NSX") + "\","
+                + "\"DinhDangSP\":\"" + result.getString("DinhDangSP") + "\","
+                + "\"MoTaSP\":\"" + result.getString("MoTaSP") + "\","
+                + "\"imgSRC\":\"" + result.getString("imgSRC").replaceAll("small", "medium") + "\"},";
+    } while (result.next());
     s = s.substring(0, s.length() - 1);
     s += "]";
-    rs.close();
+    result.close();
     out.print(s);//goi cho browser chuoi json
 %>

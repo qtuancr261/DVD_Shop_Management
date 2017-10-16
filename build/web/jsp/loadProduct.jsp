@@ -17,15 +17,24 @@
 <%
     //Phải thêm thư viện MySQL vào project trước khi nạp Driver
     //Nạp Driver của MySQL
-    String exp = request.getParameter("type");
+    String productType = request.getParameter("type");
     Class.forName("com.mysql.jdbc.Driver").newInstance();
     //Thiết lập kết nối với MySQL
     Connection con = DriverManager.getConnection(
             "jdbc:mysql://localhost:3306/CUAHANG_BANGDIA?useUnicode=true&characterEncoding=utf8", "root", "thematrix141");
     //Tạo ra đối tượng thực thi các câu lệnh SQL
     Statement stm = con.createStatement();
-    ResultSet rs = stm.executeQuery("select TenSP,GiaSP,imgSRC from SANPHAM order by NgayNhapSP desc limit 12");
-    if (!rs.next())
+    ResultSet result;
+    String sqlCommand = "";
+    
+    if (productType.equals("new"))
+        sqlCommand = "select TenSP,MaSP,GiaSP,imgSRC from SANPHAM order by NgayNhapSP desc limit 12";
+    else if (productType.equals("hot"))
+        sqlCommand = "select TenSP,MaSP,GiaSP,imgSRC from SANPHAM";
+    else
+        sqlCommand = String.format("select TenSP,MaSP,GiaSP,imgSRC from SANPHAM where MaSP like '%%%s%%'", productType);
+    result = stm.executeQuery(sqlCommand);
+    if (!result.next())
     {
         out.print("empty");
         return;
@@ -36,16 +45,17 @@
     {
         // Convert Money
         NumberFormat priceFormat = NumberFormat.getCurrencyInstance(Locale.UK);
-        int price = rs.getInt("GiaSP");
+        int price = result.getInt("GiaSP");
         String formattedPrice = priceFormat.format(price).substring(1) + " VNĐ";
 
-        s += "{\"TenSP\":\"" + rs.getString("TenSP") + "\","
+        s += "{\"TenSP\":\"" + result.getString("TenSP") + "\","
+                + "\"MaSP\":\"" + result.getString("MaSP") + "\","
                 + "\"GiaSP\":\"" + formattedPrice + "\","
-                + "\"imgSRC\":\"" + rs.getString("imgSRC") + "\"},";
-    } while (rs.next());
+                + "\"imgSRC\":\"" + result.getString("imgSRC") + "\"},";
+    } while (result.next());
     s = s.substring(0, s.length() - 1);
     s += "]";
-    rs.close();
+    result.close();
     out.print(s);//goi cho browser chuoi json
 %>
 
