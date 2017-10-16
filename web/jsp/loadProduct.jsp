@@ -28,11 +28,11 @@
     String sqlCommand = "";
     
     if (productType.equals("new"))
-        sqlCommand = "select TenSP,GiaSP,imgSRC from SANPHAM order by NgayNhapSP desc limit 12";
+        sqlCommand = "select TenSP,MaSP,GiaSP,imgSRC from SANPHAM order by NgayNhapSP desc limit 12";
     else if (productType.equals("hot"))
-        sqlCommand = "select TenSP,GiaSP,imgSRC from SANPHAM";
+        sqlCommand = "select TenSP,MaSP,GiaSP,imgSRC from SANPHAM";
     else
-        sqlCommand = String.format("select TenSP,GiaSP,imgSRC from SANPHAM where MaSP like '%%%s%%'", productType);
+        sqlCommand = String.format("select TenSP,MaSP,GiaSP,imgSRC from SANPHAM where MaSP like '%%%s%%'", productType);
     result = stm.executeQuery(sqlCommand);
     if (!result.next())
     {
@@ -49,6 +49,7 @@
         String formattedPrice = priceFormat.format(price).substring(1) + " VNĐ";
 
         s += "{\"TenSP\":\"" + result.getString("TenSP") + "\","
+                + "\"MaSP\":\"" + result.getString("MaSP") + "\","
                 + "\"GiaSP\":\"" + formattedPrice + "\","
                 + "\"imgSRC\":\"" + result.getString("imgSRC") + "\"},";
     } while (result.next());
