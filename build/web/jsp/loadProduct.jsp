@@ -26,7 +26,6 @@
     Statement stm = con.createStatement();
     ResultSet result;
     String sqlCommand = "";
-    
     if (productType.equals("new"))
         sqlCommand = "select TenSP,MaSP,GiaSP,imgSRC from SANPHAM order by NgayNhapSP desc limit 12";
     else if (productType.equals("hot"))

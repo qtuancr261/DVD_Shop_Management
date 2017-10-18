@@ -5,7 +5,7 @@
             <url>web/js/processData.js</url>
             <bookmark id="1">
                 <name/>
-                <line>109</line>
+                <line>112</line>
                 <key/>
             </bookmark>
         </file>
@@ -13,11 +13,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/thieuquangtuan/Dropbox/NetBeansProjects/DVD_Shop_Management/web/index.html</file>
-            <file>file:/home/thieuquangtuan/Dropbox/NetBeansProjects/DVD_Shop_Management/web/jsp/loadCurrentProductInfo.jsp</file>
+            <file>file:/home/thieuquangtuan/Dropbox/NetBeansProjects/DVD_Shop_Management/web/myPackage/Cart.java</file>
+            <file>file:/home/thieuquangtuan/Dropbox/NetBeansProjects/DVD_Shop_Management/web/jsp/addToCart.jsp</file>
             <file>file:/home/thieuquangtuan/Dropbox/NetBeansProjects/DVD_Shop_Management/web/js/processData.js</file>
-            <file>file:/home/thieuquangtuan/Dropbox/NetBeansProjects/DVD_Shop_Management/web/productgird.html</file>
-            <file>file:/home/thieuquangtuan/Dropbox/NetBeansProjects/DVD_Shop_Management/web/jsp/loadProduct.jsp</file>
-            <file>file:/home/thieuquangtuan/Dropbox/NetBeansProjects/DVD_Shop_Management/web/details.html</file>
+            <file>file:/home/thieuquangtuan/Dropbox/NetBeansProjects/DVD_Shop_Management/web/myPackage/Product.java</file>
         </group>
     </open-files>
 </project-private>

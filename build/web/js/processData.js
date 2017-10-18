@@ -3,6 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+if(sessionStorage.cartCount == undefined)
+    var choseProductsList = new Array(20);
+
 function checkInfoBeforeCreateAccount()
 {
     var userName = document.getElementById("userName").value;
@@ -274,6 +277,16 @@ function setCurrentProductID(element)
     //var str = xmlhttp.responseText.trim();
 }
 
+function addProductToCart(productID)
+{
+    var num = document.getElementById("productNumber").value;
+    alert(productID + " : " + document.getElementById("productNumber").value);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("get", "jsp/addToCart.jsp?id=" + sessionStorage.currentProductID + "&num=" + num, false);
+    xmlhttp.send();
+    alert(xmlhttp.responseText);
+}
+
 function getCurrentProductInfo()
 {
     var xmlhttp = new XMLHttpRequest();
@@ -290,6 +303,13 @@ function getCurrentProductInfo()
     document.getElementById("currentProductType").innerHTML = productInfoJSON[0].DinhDangSP;
     document.getElementById("currentProductDescription").innerHTML = productInfoJSON[0].MoTaSP;
     document.getElementById("currentProductPrice").innerHTML = productInfoJSON[0].GiaSP;
+    document.getElementById("addProductButton").setAttribute("onclick", "addProductToCart('" + sessionStorage.currentProductID + "')");
     var imgSRC = document.getElementById("zoom_03");
     imgSRC.setAttribute("src",productInfoJSON[0].imgSRC);
+}
+
+
+function loadCart()
+{
+    
 }
