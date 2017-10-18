@@ -194,14 +194,10 @@
                                     <div class="wided">
                                         <div class="qty">
                                             Số Lượng &nbsp;&nbsp;:
-                                            <select>
-                                                <option>
-                                                    1
-                                                </option>
-                                            </select>
+                                            <input type="number" id="productNumber" value="1">
                                         </div>
                                         <div class="button_group">
-                                            <button class="button" onClick="location.href = 'cart.html'">
+                                            <button class="button" id="addProductButton" onClick="location.href = 'cart.html'">
                                                 Thêm vào giỏ
                                             </button>
                                             <button class="button compare">
@@ -856,7 +852,7 @@
                                     Vui lòng nhập email để nhận tin mới nhất về sản phẩm
                                 </p>
                                 <form>
-                                    <input class="email" type="text" name="" placeholder="Your Email...">
+                                    <input class="email" type="text" name=" " placeholder="Your Email...">
                                     <input class="submit" type="submit" value="Gửi">
                                 </form>
                             </div>
@@ -993,6 +989,7 @@
         <script>
             //alert(sessionStorage.currentProductID);
             getCurrentProductInfo();
+            
         </script>
     </body>
 
