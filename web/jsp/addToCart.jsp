@@ -18,11 +18,11 @@
 <%
     String productID = request.getParameter("id");
     int num = Integer.parseInt(request.getParameter("num"));
-    Cart.addProductToCart(new Product(productID, num));
-    String currentCart = "";
-    for(Product currentProduct : Cart.getWishProducts())
+    Cart.addProductToCart(productID, num);
+    /*String currentCart = "";
+    for(Product currentProduct : Cart.getWishProducts().values())
     {
         currentCart += currentProduct.getID()+ " -> " + currentProduct.getName() + " -> " + currentProduct.getNum() + "\n";
     }
-    out.print(currentCart);
+    out.print(currentCart);*/
 %>
