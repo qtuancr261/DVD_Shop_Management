@@ -6,22 +6,38 @@
 package myPackage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /**
  *
  * @author thieuquangtuan
  */
 public class Cart
 {
-    private static ArrayList<Product> wishProducts = new ArrayList<>();
+    //private static ArrayList<Product> wishProducts = new ArrayList<>();
+    private static Map<String, Product> wishProducts = new HashMap<String, Product>();
     public Cart()
     {
         
     }
-    public static void addProductToCart(Product newProduct)
+    public static void addProductToCart(String id, int num)
     {
-        wishProducts.add(newProduct);
+        if (wishProducts.containsKey(id))
+        {
+            Product existProduct = wishProducts.get(id);
+            existProduct.setNum(existProduct.getNum() + num);
+        }
+        else
+            wishProducts.put(id, new Product(id, num));
     }
-    public static ArrayList<Product> getWishProducts()
+    public static void removeProductFromCart(String id)
+    {
+        if (wishProducts.containsKey(id))
+        {
+            wishProducts.remove(id);
+        }
+    }
+    public static Map<String, Product> getWishProducts()
     {
         return wishProducts;
     }

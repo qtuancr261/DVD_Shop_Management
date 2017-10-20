@@ -8,7 +8,8 @@ package myPackage;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.text.NumberFormat;
+import java.util.Locale;
 /**
  *
  * @author thieuquangtuan
@@ -18,6 +19,7 @@ public class Product
     private String id;
     private String name;
     private int price;
+    private String type;
     private String IMG;
     private int theNumber;
     public Product(String id, int num)
@@ -33,6 +35,7 @@ public class Product
             {
                 name = MySQL.result.getString("TenSP");
                 price = MySQL.result.getInt("GiaSP");
+                type = MySQL.result.getString("DinhDangSP");
                 IMG = MySQL.result.getString("imgSRC");
             }
         } catch (InstantiationException ex)
@@ -58,6 +61,10 @@ public class Product
     {
         return price;
     }
+    public String getType()
+    {
+        return type;
+    }
     public String getIMG()
     {
         return IMG;
@@ -65,5 +72,16 @@ public class Product
     public int getNum()
     {
         return theNumber;
+    }
+    public void setNum(int newValue)
+    {
+        theNumber = newValue;
+    }
+    public static String formattedPrice(int price)
+    {
+        NumberFormat priceFormat = NumberFormat.getCurrencyInstance(Locale.UK);
+        int size = priceFormat.format(price).length();
+        String formattedPrice = priceFormat.format(price).substring(1, size - 3) + " VNĐ";
+        return formattedPrice.replace(',', '.');
     }
 }
