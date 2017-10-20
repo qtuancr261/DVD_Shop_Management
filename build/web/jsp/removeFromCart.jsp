@@ -1,8 +1,9 @@
 <%-- 
-    Document   : addToCart
-    Created on : Oct 17, 2017, 11:07:47 PM
+    Document   : removeFromCart
+    Created on : Oct 20, 2017, 11:13:25 PM
     Author     : thieuquangtuan
 --%>
+
 <%@page import="myPackage.Product"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -17,8 +18,7 @@
 <%@page contentType="application/json" pageEncoding="UTF-8"%>
 <%
     String productID = request.getParameter("id");
-    int num = Integer.parseInt(request.getParameter("num"));
-    Cart.addProductToCart(productID, num);
+    Cart.removeProductFromCart(productID);
     /*String currentCart = "";
     for(Product currentProduct : Cart.getWishProducts().values())
     {

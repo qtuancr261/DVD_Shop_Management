@@ -13,6 +13,7 @@
 <%@page import="java.text.NumberFormat" %>
 <%@page import="java.text.DecimalFormat" %>
 <%@page import="java.util.Locale" %>
+<%@page import="myPackage.Product" %>
 <%@page contentType="application/json" pageEncoding="UTF-8"%>
 <%
     //Phải thêm thư viện MySQL vào project trước khi nạp Driver
@@ -37,12 +38,8 @@
     do
     {
         // Convert Money
-        NumberFormat priceFormat = NumberFormat.getCurrencyInstance(Locale.UK);
-        int price = result.getInt("GiaSP");
-        String formattedPrice = priceFormat.format(price).substring(1) + " VNĐ";
-
         s += "{\"TenSP\":\"" + result.getString("TenSP") + "\","
-                + "\"GiaSP\":\"" + formattedPrice + "\","
+                + "\"GiaSP\":\"" + Product.formattedPrice(result.getInt("GiaSP")) + "\","
                 + "\"NSX\":\"" + result.getString("NSX") + "\","
                 + "\"DinhDangSP\":\"" + result.getString("DinhDangSP") + "\","
                 + "\"MoTaSP\":\"" + result.getString("MoTaSP") + "\","

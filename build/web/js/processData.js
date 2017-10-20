@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-if(sessionStorage.cartCount == undefined)
+if (sessionStorage.cartCount == undefined)
     var choseProductsList = new Array(20);
 
 function checkInfoBeforeCreateAccount()
@@ -144,7 +144,7 @@ function loadHotProducts()
                 listHotProducts += "" +
                         "<div class=\"col-md-3 col-sm-6\">" +
                         "<div class=\"products\">" +
-                        "<div class=\"thumbnail\"><a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\""+ listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
+                        "<div class=\"thumbnail\"><a id=\"" + listProductsJSON[i].MaSP + "\" href=\"details.html\" onclick=\"setCurrentProductID(this)\"><img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"Product Name\"></a></div>" +
                         "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
                         "<h4 class=\"price\">" + listProductsJSON[i].GiaSP + "</h4>" +
                         "<div class=\"button_group\"><button class=\"button add-cart\" type=\"button\" onclick=\"location.href = 'cart.html'\">THÊM VÀO GIỎ</button><button class=\"button compare\" type=\"button\"><i class=\"fa fa-exchange\"></i></button><button class=\"button wishlist\" type=\"button\"><i class=\"fa fa-heart-o\"></i></button></div>" +
@@ -284,7 +284,7 @@ function addProductToCart(productID)
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("get", "jsp/addToCart.jsp?id=" + sessionStorage.currentProductID + "&num=" + num, false);
     xmlhttp.send();
-    alert(xmlhttp.responseText);
+    //alert(xmlhttp.responseText);
 }
 
 function getCurrentProductInfo()
@@ -292,7 +292,7 @@ function getCurrentProductInfo()
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("get", "jsp/loadCurrentProductInfo.jsp?id=" + sessionStorage.currentProductID, false);
     xmlhttp.send();
-    if (xmlhttp.responseText.trim() == "empty") 
+    if (xmlhttp.responseText.trim() == "empty")
     {
         document.getElementById("hot").innerHTML = "Impossible";
         return;
@@ -305,11 +305,70 @@ function getCurrentProductInfo()
     document.getElementById("currentProductPrice").innerHTML = productInfoJSON[0].GiaSP;
     document.getElementById("addProductButton").setAttribute("onclick", "addProductToCart('" + sessionStorage.currentProductID + "')");
     var imgSRC = document.getElementById("zoom_03");
-    imgSRC.setAttribute("src",productInfoJSON[0].imgSRC);
+    imgSRC.setAttribute("src", productInfoJSON[0].imgSRC);
 }
 
 
 function loadCart()
 {
-    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("get", "jsp/loadCart.jsp?type=cart", false);
+    xmlhttp.send();
+    if (xmlhttp.responseText.trim() == "empty")
+    {
+        document.getElementById("hot").innerHTML = "Impossible";
+        return;
+    }
+    //alert(xmlhttp.responseText);
+    var listProductsJSON = JSON.parse(xmlhttp.responseText);
+    var listProducts = "";
+    for (var i = 0; i < listProductsJSON.length - 1; i++)
+    {
+        listProducts += "<tr>" +
+                "<td>" +
+                "<img src=\"" + listProductsJSON[i].imgSRC + "\" alt=\"\">" +
+                "</td>" +
+                "<td>" +
+                "<div class=\"shop-details\">" +
+                "<div class=\"productname\">" + listProductsJSON[i].TenSP + "</div>" +
+                "<p>" +
+                "<img alt=\"\" src=\"" + "images/star.png" + "\">" +
+                "<a class=\"review_num\" href=\"#\">(15)</a>" +
+                "</p>" +
+                "<p>" +
+                "Định dạng :" +
+                "<strong class=\"pcode\">" + listProductsJSON[i].DinhDangSP + "</strong>" +
+                "</p>" +
+                "</div>" +
+                "<p>" +
+                "Mã code :" +
+                "<strong class=\"pcode\">120120</strong>" +
+                "</p>" +
+                "</td>" +
+                "<td>" +
+                "<h5>" + listProductsJSON[i].GiaSP + "</h5>" +
+                "</td>" +
+                "<td>" +
+                "<input type=\"number\" style=\"width: 5em;\" id=\"productNumberCart\" value=\"" + listProductsJSON[i].SoLuongSP + "\">" +
+                "</td>" +
+                "<td>" +
+                "<h5>" +
+                "<strong class=\"red\"> 48.000 VNĐ </strong>" +
+                "</h5>" +
+                "</td>" +
+                "<td>" +
+                "<a href=\"cart.html\"  onclick=\"removeProductFromCart('" + listProductsJSON[i].MaSP +"')\">" +
+                "<img src=\"images/remove.png\" alt=\"\">" +
+                "</a>" +
+                "</td>" +
+                "</tr>";
+    }
+    document.getElementById("cartTableBody").innerHTML = listProducts;
+    document.getElementById("priceOfAll").innerHTML = listProductsJSON[listProductsJSON.length - 1].DonGia;
+}
+function removeProductFromCart(productID)
+{
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("get", "jsp/removeFromCart.jsp?id=" + productID, false);
+    xmlhttp.send();
 }
