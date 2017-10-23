@@ -35,8 +35,24 @@
                                 <div class="col-md-7 col-lg-7"></div>
                                 <div class="col-md-5 col-lg-5">
                                     <ul class="usermenu">
-                                        <li><a href="checkout.html" class="log">Đăng nhập</a></li>
-                                        <li><a href="checkout2.html" class="reg">Đăng kí</a></li>
+                                        <li>
+                                            <a href="#" class="log" id="loginButton"></a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="reg" id="registerButton"></a>
+                                        </li>
+                                        <script>
+                                            if (!sessionStorage.username || sessionStorage.username == "undefined") {
+                                                document.getElementById('loginButton').innerHTML = "Đăng nhập";
+                                                document.getElementById("loginButton").setAttribute("href", "checkout.html");
+                                                document.getElementById('registerButton').innerHTML = "Đăng ký";
+                                                document.getElementById("registerButton").setAttribute("href", "checkout2.html");
+                                            } else {
+                                                document.getElementById("loginButton").innerHTML = sessionStorage.username;
+                                                document.getElementById("registerButton").innerHTML = "Đăng xuất";
+                                                document.getElementById("registerButton").setAttribute("onclick", "logout()");
+                                            }
+                                        </script>
                                     </ul>
                                 </div>
                             </div>
@@ -48,35 +64,9 @@
                                     <form><input class="search-submit" type="submit" value=""><input class="search-input" placeholder="Nhập sp bạn muốn tìm..." type="text" value="" name="search"></form>
                                 </li>
                                 <li class="option-cart">
-                                    <a href="cart.html" class="cart-icon">cart <span class="cart_no">02</span></a>
-                                    <ul class="option-cart-item">
-                                        <li>
-                                            <div class="cart-item">
-                                                <div class="image"><img src="images/logo1.jpg" alt=""></div>
-                                                <div class="item-description">
-                                                    <p class="name">Từ Đó Khôn Nguôi - Thái Hiền</p>
-                                                    <p>Định dạng: <span class="light-red">Audio CD</span><br>Số lượng: <span class="light-red">01</span></p>
-                                                </div>
-                                                <div class="right">
-                                                    <p class="price">117.000VNĐ</p>
-                                                    <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="cart-item">
-                                                <div class="image"><img src="images/logo1.jpg" alt=""></div>
-                                                <div class="item-description">
-                                                    <p class="name">The Smurfs 2 - Xì Trum 2</p>
-                                                    <p>Định dạng: <span class="light-red">DVD</span><br>Số lượng: <span class="light-red">01</span></p>
-                                                </div>
-                                                <div class="right">
-                                                    <p class="price">30.000VNĐ</p>
-                                                    <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><span class="total">Tổng <strong>147.000VND</strong></span><button class="checkout" onClick="location.href = 'cart.html'">Mua ngay</button></li>
+                                    <a href="cart.html" class="cart-icon" onmouseover="previewCart()">cart <span class="cart_no" id="previewCartCapacity"></span></a>
+                                    <ul class="option-cart-item" id="previewCart">
+                                        <!-- Xem trước giỏ hàng tại đây-->
                                     </ul>
                                 </li>
                             </ul>
@@ -107,17 +97,7 @@
                                     <li><a href="productgird.html" onclick="setCategory('new')">MỚI NHẤT</a></li>
                                     <li><a href="productgird.html" onclick="setCategory('hot')">BÁN CHẠY</a></li>
                                     <li><a href="productgird.html">KHUYẾN MÃI</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DỊCH VỤ</a>
-                                        <div class="dropdown-menu mega-menu">
-                                            <div class="row">
-                                                <ul class="mega-menu-links">
-                                                    <li><a href="productgird.html">Mua bán-Cho thuê</a></li>
-                                                    <li><a href="productgird.html">In-Ghi đĩa</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    <li><a href="service.html">DỊCH VỤ</a></li>
                                     <li><a href="contact.html">LIÊN HỆ</a></li>
                                 </ul>
                             </div>
@@ -170,7 +150,7 @@
                                 </tr>
                             </thead>
                             <tbody id="cartTableBody">
-                                
+
                         </table>
                         <div class="clearfix">
                         </div>
@@ -200,13 +180,13 @@
                                             Tổng thành tiền :
                                         </h5>
                                         <span id="priceOfAll">
-                                            282.000VNĐ
+                                            0 VNĐ
                                         </span>
                                     </div>
                                     <button class="dathang" onClick="location.href = 'index.html'">
                                         TIẾP TỤC MUA
                                     </button>
-                                    <button class="dathang" onClick="location.href = 'checkout.html'">
+                                    <button class="dathang" onClick="location.href = 'checkout2.html'">
                                         ĐẶT HÀNG
                                     </button>
                                 </div>
@@ -284,6 +264,12 @@
     </script>
     <script>
         loadCart();
+        if (!sessionStorage.cartCapacity || sessionStorage.cartCapacity == "0")
+        {
+            document.getElementById("previewCartCapacity").innerHTML = "0";
+            removeAllProductsFromCart();
+        } else
+            document.getElementById("previewCartCapacity").innerHTML = sessionStorage.cartCapacity;
     </script>
 </body>
 
