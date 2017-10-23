@@ -1,568 +1,531 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/logo1.jpg">
-    <title>Băng đĩa | Sự lựa chọn thông minh</title>
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
-    <link href="css/sequence-looptheme.css" rel="stylesheet" media="all" />
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/css.css" rel="stylesheet">
-    <script src="js/processData.js"></script>
-    <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
-</head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/logo1.jpg">
+        <title>Băng đĩa | Sự lựa chọn thông minh</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+        <link href="css/sequence-looptheme.css" rel="stylesheet" media="all" />
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/css.css" rel="stylesheet">
+        <script src="js/processData.js"></script>
+        <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
+    </head>
 
-<body>
-    <div class="wrapper">
-        <div class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2 col-lg-2">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="images/Logo1.PNG" alt="Bangdia">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-10 col-lg-10">
-                        <div class="header_top">
-                            <div class="row">
-                                <div class="col-md-7 col-lg-7"></div>
-                                <div class="col-md-5 col-lg-5">
-                                    <ul class="usermenu">
-                                        <li><a href="checkout.html" class="log">Đăng nhập</a></li>
-                                        <li><a href="checkout2.html" class="reg">Đăng kí</a></li>
-                                    </ul>
-                                </div>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="images/Logo1.PNG" alt="Bangdia">
+                                </a>
                             </div>
                         </div>
-                        <div class="clearfix"></div>
-                        <div class="header_bottom">
-                            <ul class="option">
-                                <li id="search" class="search">
-                                    <form><input class="search-submit" type="submit" value=""><input class="search-input" placeholder="Nhập sp bạn muốn tìm..." type="text" value="" name="search"></form>
-                                </li>
-                                <li class="option-cart">
-                                    <a href="cart.html" class="cart-icon">cart <span class="cart_no">02</span></a>
-                                    <ul class="option-cart-item">
-                                        <li>
-                                            <div class="cart-item">
-                                                <div class="image"><img src="images/logo1.jpg" alt=""></div>
-                                                <div class="item-description">
-                                                    <p class="name">Từ Đó Khôn Nguôi - Thái Hiền</p>
-                                                    <p>Định dạng: <span class="light-red">Audio CD</span><br>Số lượng: <span class="light-red">01</span></p>
-                                                </div>
-                                                <div class="right">
-                                                    <p class="price">117.000VNĐ</p>
-                                                    <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="cart-item">
-                                                <div class="image"><img src="images/logo1.jpg" alt=""></div>
-                                                <div class="item-description">
-                                                    <p class="name">The Smurfs 2 - Xì Trum 2</p>
-                                                    <p>Định dạng: <span class="light-red">DVD</span><br>Số lượng: <span class="light-red">01</span></p>
-                                                </div>
-                                                <div class="right">
-                                                    <p class="price">30.000VNĐ</p>
-                                                    <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><span class="total">Tổng <strong>147.000VND</strong></span><button class="checkout" onClick="location.href = 'cart.html'">Mua ngay</button></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <div class="col-md-10 col-lg-10">
+                            <div class="header_top">
+                                <div class="row">
+                                    <div class="col-md-7 col-lg-7"></div>
+                                    <div class="col-md-5 col-lg-5">
+                                        <ul class="usermenu">
+                                            <li><a href="#" class="log" id="loginButton">Đăng nhập</a></li>
+                                            <li><a href="#" class="reg" id="registerButton">Đăng kí</a></li>
+                                            <script>
+                                                if (!sessionStorage.username || sessionStorage.username == "undefined") {
+                                                    document.getElementById('loginButton').innerHTML = "Đăng nhập";
+                                                    document.getElementById("loginButton").setAttribute("href", "checkout.html");
+                                                    document.getElementById('registerButton').innerHTML = "Đăng ký";
+                                                    document.getElementById("registerButton").setAttribute("href", "checkout2.html");
+                                                } else {
+                                                    document.getElementById("loginButton").innerHTML = sessionStorage.username;
+                                                    document.getElementById("registerButton").innerHTML = "Đăng xuất";
+                                                    document.getElementById("registerButton").setAttribute("onclick", "logout()");
+                                                }
+                                            </script>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="header_bottom">
+                                <ul class="option">
+                                    <li id="search" class="search">
+                                        <form><input class="search-submit" type="submit" value=""><input class="search-input" placeholder="Nhập sp bạn muốn tìm..." type="text" value="" name="search"></form>
+                                    </li>
+                                    <li class="option-cart">
+                                        <a href="cart.html" class="cart-icon" onmouseover="previewCart()">cart <span class="cart_no" id="previewCartCapacity"></span></a>
+                                        <ul class="option-cart-item" id="previewCart">
+                                            <!-- Xem trước giỏ hàng tại đây-->
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                         <span class="sr-only">Toggle navigation</span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                         <span class="icon-bar"></span>
                                     </button>
-                            </div>
-                            <div class="navbar-collapse collapse">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="index.html">TRANG CHỦ</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">PHÂN LOẠI</a>
-                                        <div class="dropdown-menu mega-menu">
-                                            <div class="row">
-                                                <ul class="mega-menu-links">
-                                                    <li><a href="productgird.html" onclick="setCategory('ALBUM')">Đĩa Nhạc</a></li>
-                                                    <li><a href="productgird.html" onclick="setCategory('MOVIE')">Đĩa Phim</a></li>
-                                                    <li><a href="productgird.html" onclick="setCategory('GAME')">Đĩa Game</a></li>
-                                                    <li><a href="productgird.html" onclick="setCategory('SOFT')">Đĩa Phần Mềm</a></li>
-                                                </ul>
+                                </div>
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="index.html">TRANG CHỦ</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PHÂN LOẠI</a>
+                                            <div class="dropdown-menu mega-menu">
+                                                <div class="row">
+                                                    <ul class="mega-menu-links">
+                                                        <li><a href="productgird.html" onclick="setCategory('ALBUM')">Đĩa Nhạc</a></li>
+                                                        <li><a href="productgird.html" onclick="setCategory('MOVIE')">Đĩa Phim</a></li>
+                                                        <li><a href="productgird.html" onclick="setCategory('GAME')">Đĩa Game</a></li>
+                                                        <li><a href="productgird.html" onclick="setCategory('SOFT')">Đĩa Phần Mềm</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="productgird.html" onclick="setCategory('new')">MỚI NHẤT</a></li>
-                                    <li><a href="productgird.html" onclick="setCategory('hot')">BÁN CHẠY</a></li>
-                                    <li><a href="productgird.html">KHUYẾN MÃI</a></li>
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">DỊCH VỤ</a>
-                                        <div class="dropdown-menu mega-menu">
-                                            <div class="row">
-                                                <ul class="mega-menu-links">
-                                                    <li><a href="productgird.html">Mua bán-Cho thuê</a></li>
-                                                    <li><a href="productgird.html">In-Ghi đĩa</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="contact.html">LIÊN HỆ</a></li>
-                                </ul>
+                                        </li>
+                                        <li><a href="productgird.html" onclick="setCategory('new')">MỚI NHẤT</a></li>
+                                        <li><a href="productgird.html" onclick="setCategory('hot')">BÁN CHẠY</a></li>
+                                        <li><a href="productgird.html">KHUYẾN MÃI</a></li>
+                                        <li><a href="service.html">DỊCH VỤ</a></li>
+                                        <li><a href="contact.html">LIÊN HỆ</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="clearfix">
-        </div>
-        <div class="container_fullwidth">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="category leftbar">
-                            <h3 class="title">
-                                <strong>
+            <div class="clearfix">
+            </div>
+            <div class="container_fullwidth">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="category leftbar">
+                                <h3 class="title">
+                                    <strong>
                                         Phân LOẠI
                                     </strong>
-                            </h3>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                            Đĩa Nhạc
-                                        </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                            Đĩa Phim
-                                        </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                            Đĩa Game
-                                        </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                            Đĩa Phần Mềm
-                                        </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                        <div class="branch leftbar">
-                            <h3 class="title">
-                                <strong>
+                                </h3>
+                                <ul>
+                                    <li><a href="productgird.html" onclick="setCategory('ALBUM')">Đĩa Nhạc</a></li>
+                                    <li><a href="productgird.html" onclick="setCategory('MOVIE')">Đĩa Phim</a></li>
+                                    <li><a href="productgird.html" onclick="setCategory('GAME')">Đĩa Game</a></li>
+                                    <li><a href="productgird.html" onclick="setCategory('SOFT')">Đĩa Phần Mềm</a></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="branch leftbar">
+                                <h3 class="title">
+                                    <strong>
                                         Định Dạng
                                     </strong>
-                            </h3>
-                            <ul>
-                                <li>
-                                    <a href="#">
+                                </h3>
+                                <ul>
+                                    <li>
+                                        <a href="#">
                                             CD-DA
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             SACD
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             CD-Text
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             CD-ROM
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             SVCD
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             CD EXTRA
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             MiniCD
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             DVD-ROM
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             DVD-R
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             DVD+R
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             DVD-RW 
                                         </a>
-                                </li>
-                                <li>
-                                    <a href="#">
+                                    </li>
+                                    <li>
+                                        <a href="#">
                                             DVD+RW
                                         </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                        <div class="price-filter leftbar">
-                            <h3 class="title">
-                                <strong>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="price-filter leftbar">
+                                <h3 class="title">
+                                    <strong>
                                         Giá
                                     </strong>
-                            </h3>
-                            <form class="pricing">
-                                <label> 
-                                        <input type="number">
+                                </h3>
+                                <form class="pricing">
+                                    <label> 
+                                        <input type="number" min="0" id="groundNum" value="0">
                                         VNĐ
                                     </label>
-                                <span class="separate">
-                                        - 
-                                    </span>
-                                <label>
-                                        <input type="number">
+                                    <label>
+                                        <input type="number" min="0" id="floorNum" value="0">
                                         VNĐ
                                     </label>
-                                <input type="submit" value="Tìm">
-                            </form>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                        <div class="others leftbar">
-                            <h3 class="title">
-                                <strong>
+                                    <input type="submit" value="Tìm">
+                                </form>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="others leftbar">
+                                <h3 class="title">
+                                    <strong>
                                         Others
                                     </strong>
-                            </h3>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                        <div class="others leftbar">
-                            <h3 class="title">
-                                <strong>
+                                </h3>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="others leftbar">
+                                <h3 class="title">
+                                    <strong>
                                         Others
                                     </strong>
-                            </h3>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                        <div class="fbl-box leftbar">
-                            <h3 class="title">
-                                <strong>
+                                </h3>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="fbl-box leftbar">
+                                <h3 class="title">
+                                    <strong>
                                         Facebook
                                     </strong>
-                            </h3>
-                            <span class="likebutton">
+                                </h3>
+                                <span class="likebutton">
                                     <a href="#">
                                         <img src="images/fblike.png" alt="">
                                     </a>
                                 </span>
-                            <p>
-                                12k lượt thích.
-                            </p>
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="fbplug">
-                                <a href="#">
-                                    <span>
-                                            <img src="images/fbicon.png" alt="">
-                                        </span> Đăng nhập vào Facebook
-                                </a>
-                            </div>
-                        </div>
-                        <div class="clearfix">
-                        </div>
-                        <div class="leftbanner">
-                            <img src="images/banner-small-01.png" alt="">
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        <div class="banner">
-                            <div class="bannerslide" id="bannerslide">
-                                <ul class="slides">
+                                <p>
+                                    12k lượt thích.
+                                </p>
+                                <ul>
                                     <li>
                                         <a href="#">
-                                            <img src="images/banner-01.jpg" alt="" />
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#">
-                                            <img src="images/banner-02.jpg" alt="" />
                                         </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="fbplug">
+                                    <a href="#">
+                                        <span>
+                                            <img src="images/fbicon.png" alt="">
+                                        </span> Đăng nhập vào Facebook
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="leftbanner">
+                                <img src="images/banner-small-01.png" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="banner">
+                                <div class="bannerslide" id="bannerslide">
+                                    <ul class="slides">
+                                        <li>
+                                            <a href="#">
+                                                <img src="images/banner-01.jpg" alt="" />
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <img src="images/banner-02.jpg" alt="" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                            <div class="products-grid">
+                                <div class="toolbar">
+                                    <div class="sorter">
+                                        <div class="view-mode">
+                                            <a href="productlitst.html" class="list">
+                                                Danh sách
+                                            </a>
+                                            <a href="#" class="grid active">
+                                                Lưới
+                                            </a>
+                                        </div>
+                                        <div class="sort-by">
+                                            Tìm theo :
+                                            <select name="GT">
+                                                <option value="Default" selected>
+                                                    Mặc định
+                                                </option>
+                                                <option value="Name">
+                                                    Tên
+                                                </option>
+                                                <option value="Price">
+                                                    Giá
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="limiter">
+                                            Hiển thị :
+                                            <select name="GT">
+                                                <option value="3" selected>
+                                                    3
+                                                </option>
+                                                <option value="6">
+                                                    6
+                                                </option>
+                                                <option value="9">
+                                                    9
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="pager">
+                                        <a href="#" class="prev-page">
+                                            <i class="fa fa-angle-left">
+                                            </i>
+                                        </a>
+                                        <a href="#" class="active">
+                                            1
+                                        </a>
+                                        <a href="#">
+                                            2
+                                        </a>
+                                        <a href="#">
+                                            3
+                                        </a>
+                                        <a href="#" class="next-page">
+                                            <i class="fa fa-angle-right">
+                                            </i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <div class="row" id="categoryProducts">
+
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                                <div class="toolbar">
+                                    <div class="sorter bottom">
+                                        <div class="view-mode">
+                                            <a href="productlitst.html" class="list">
+                                                Danh sách
+                                            </a>
+                                            <a href="#" class="grid active">
+                                                Lưới
+                                            </a>
+                                        </div>
+                                        <div class="sort-by">
+                                            Tìm theo :
+                                            <select name="">
+                                                <option value="Default" selected>
+                                                    Mặc định
+                                                </option>
+                                                <option value="Name">
+                                                    Tên
+                                                </option>
+                                                <option value="Price">
+                                                    Giá
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="limiter">
+                                            Hiển thị :
+                                            <select name="">
+                                                <option value="3" selected>
+                                                    3
+                                                </option>
+                                                <option value="6">
+                                                    6
+                                                </option>
+                                                <option value="9">
+                                                    9
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="pager">
+                                        <a href="#" class="prev-page">
+                                            <i class="fa fa-angle-left">
+                                            </i>
+                                        </a>
+                                        <a href="#" class="active">
+                                            1
+                                        </a>
+                                        <a href="#">
+                                            2
+                                        </a>
+                                        <a href="#">
+                                            3
+                                        </a>
+                                        <a href="#" class="next-page">
+                                            <i class="fa fa-angle-right">
+                                            </i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="clearfix">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="footer">
+                <div class="footer-info">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="footer-logo">
+                                    <a href="#"><img src="images/Logo1.PNG" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-sm-6">
+                                <h4 class="title">LIÊN HỆ <strong>VỚI CHÚNG TÔI</strong></h4>
+                                <p>97 Man Thiên, phường Hiệp Phú, quận 9, Hồ Chí Minh</p>
+                                <p>SĐT : 0909090909</p>
+                                <p>Email : bangdiabanmoinha@gmail.com</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 class="title"><strong>Newsletter </strong></h4>
+                                <p>Đăng kí ngay để nhận được các thông tin khuyến mãi và ưu đãi đặc biệt từ:<strong> bangdiabanmoinha.com </strong> </p>
+                                <form class="newsletter">
+                                    <input type="text" name="GT" placeholder="Email của bạn....">
+                                    <input type="submit" value="OK" class="button">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-info">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Copyright © Your Website 2017
+                                    <a href="#"></a>. </p>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="social-icon">
+                                    <li>
+                                        <a href="#" class="linkedin"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="google-plus"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="twitter"></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="facebook"></a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="clearfix">
-                        </div>
-                        <div class="products-grid">
-                            <div class="toolbar">
-                                <div class="sorter">
-                                    <div class="view-mode">
-                                        <a href="productlitst.html" class="list">
-                                                Danh sách
-                                            </a>
-                                        <a href="#" class="grid active">
-                                                Lưới
-                                            </a>
-                                    </div>
-                                    <div class="sort-by">
-                                        Tìm theo :
-                                        <select name="GT">
-                                                <option value="Default" selected>
-                                                    Mặc định
-                                                </option>
-                                                <option value="Name">
-                                                    Tên
-                                                </option>
-                                                <option value="Price">
-                                                    Giá
-                                                </option>
-                                            </select>
-                                    </div>
-                                    <div class="limiter">
-                                        Hiển thị :
-                                        <select name="GT">
-                                                <option value="3" selected>
-                                                    3
-                                                </option>
-                                                <option value="6">
-                                                    6
-                                                </option>
-                                                <option value="9">
-                                                    9
-                                                </option>
-                                            </select>
-                                    </div>
-                                </div>
-                                <div class="pager">
-                                    <a href="#" class="prev-page">
-                                        <i class="fa fa-angle-left">
-                                            </i>
-                                    </a>
-                                    <a href="#" class="active">
-                                            1
-                                        </a>
-                                    <a href="#">
-                                            2
-                                        </a>
-                                    <a href="#">
-                                            3
-                                        </a>
-                                    <a href="#" class="next-page">
-                                        <i class="fa fa-angle-right">
-                                            </i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="clearfix">
-                            </div>
-                            <div class="row" id="categoryProducts">
-
-                            </div>
-                            <div class="clearfix">
-                            </div>
-                            <div class="toolbar">
-                                <div class="sorter bottom">
-                                    <div class="view-mode">
-                                        <a href="productlitst.html" class="list">
-                                                Danh sách
-                                            </a>
-                                        <a href="#" class="grid active">
-                                                Lưới
-                                            </a>
-                                    </div>
-                                    <div class="sort-by">
-                                        Tìm theo :
-                                        <select name="">
-                                                <option value="Default" selected>
-                                                    Mặc định
-                                                </option>
-                                                <option value="Name">
-                                                    Tên
-                                                </option>
-                                                <option value="Price">
-                                                    Giá
-                                                </option>
-                                            </select>
-                                    </div>
-                                    <div class="limiter">
-                                        Hiển thị :
-                                        <select name="">
-                                                <option value="3" selected>
-                                                    3
-                                                </option>
-                                                <option value="6">
-                                                    6
-                                                </option>
-                                                <option value="9">
-                                                    9
-                                                </option>
-                                            </select>
-                                    </div>
-                                </div>
-                                <div class="pager">
-                                    <a href="#" class="prev-page">
-                                        <i class="fa fa-angle-left">
-                                            </i>
-                                    </a>
-                                    <a href="#" class="active">
-                                            1
-                                        </a>
-                                    <a href="#">
-                                            2
-                                        </a>
-                                    <a href="#">
-                                            3
-                                        </a>
-                                    <a href="#" class="next-page">
-                                        <i class="fa fa-angle-right">
-                                            </i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="clearfix">
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="clearfix"></div>
-        <div class="footer">
-            <div class="footer-info">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="footer-logo">
-                                <a href="#"><img src="images/Logo1.PNG" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="col-md-5 col-sm-6">
-                            <h4 class="title">LIÊN HỆ <strong>VỚI CHÚNG TÔI</strong></h4>
-                            <p>97 Man Thiên, phường Hiệp Phú, quận 9, Hồ Chí Minh</p>
-                            <p>SĐT : 0909090909</p>
-                            <p>Email : bangdiabanmoinha@gmail.com</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h4 class="title"><strong>Newsletter </strong></h4>
-                            <p>Đăng kí ngay để nhận được các thông tin khuyến mãi và ưu đãi đặc biệt từ:<strong> bangdiabanmoinha.com </strong> </p>
-                            <form class="newsletter">
-                                <input type="text" name="GT" placeholder="Email của bạn....">
-                                <input type="submit" value="OK" class="button">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright-info">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p>Copyright © Your Website 2017
-                                <a href="#"></a>. </p>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="social-icon">
-                                <li>
-                                    <a href="#" class="linkedin"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="google-plus"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="twitter"></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="facebook"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js">
-    </script>
-    <script type="text/javascript" src="js/jquery.easing.1.3.js">
-    </script>
-    <script type="text/javascript" src="js/bootstrap.min.js">
-    </script>
-    <script defer src="js/jquery.flexslider.js">
-    </script>
-    <script type="text/javascript" src="js/jquery.sequence-min.js">
-    </script>
-    <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js">
-    </script>
-    <script type="text/javascript" src="js/script.min.js">
-    </script>
-    <script>
-        //alert(sessionStorage.category);
-        loadSpecificProducts();
-    </script>
-</body>
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.easing.1.3.js">
+        </script>
+        <script type="text/javascript" src="js/bootstrap.min.js">
+        </script>
+        <script defer src="js/jquery.flexslider.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.sequence-min.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js">
+        </script>
+        <script type="text/javascript" src="js/script.min.js">
+        </script>
+        <script>
+            //alert(sessionStorage.category);
+            loadSpecificProducts();
+            if (!sessionStorage.cartCapacity || sessionStorage.cartCapacity == "0")
+            {
+                document.getElementById("previewCartCapacity").innerHTML = "0";
+                removeAllProductsFromCart();
+            } else
+                document.getElementById("previewCartCapacity").innerHTML = sessionStorage.cartCapacity;
+        </script>
+    </body>
 
 </html>

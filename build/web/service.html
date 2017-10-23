@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/logo1.jpg">
+        <title>Băng đĩa | Sự lựa chọn thông minh</title>
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen"/>
+        <link href="css/sequence-looptheme.css" rel="stylesheet" media="all"/>
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/css.css" rel="stylesheet">
+        <script src="js/processData.js"></script>
+        <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-lg-2">
+                            <div class="logo">
+                                <a href="index.html">
+                                    <img src="images/Logo1.PNG" alt="Bangdia">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-lg-10">
+                            <div class="header_top">
+                                <div class="row">
+                                    <div class="col-md-7 col-lg-7"></div>
+                                    <div class="col-md-5 col-lg-5">
+                                        <ul class="usermenu">
+                                            <li><a href="#" class="log" id="loginButton">Đăng nhập</a></li>
+                                            <li><a href="#" class="reg" id="registerButton">Đăng kí</a></li>
+                                            <script>
+                                                if (!sessionStorage.username || sessionStorage.username == "undefined") {
+                                                    document.getElementById('loginButton').innerHTML = "Đăng nhập";
+                                                    document.getElementById("loginButton").setAttribute("href", "checkout.html");
+                                                    document.getElementById('registerButton').innerHTML = "Đăng ký";
+                                                    document.getElementById("registerButton").setAttribute("href", "checkout2.html");
+                                                } else {
+                                                    document.getElementById("loginButton").innerHTML = sessionStorage.username;
+                                                    document.getElementById("registerButton").innerHTML = "Đăng xuất";
+                                                    document.getElementById("registerButton").setAttribute("onclick", "logout()");
+                                                }
+                                            </script>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="header_bottom">
+                                <ul class="option">
+                                    <li id="search" class="search">
+                                        <form><input class="search-submit" type="submit" value=""><input class="search-input" placeholder="Nhập sp bạn muốn tìm..." type="text" value="" name="search"></form>
+                                    </li>
+                                    <li class="option-cart">
+                                        <a href="cart.html" class="cart-icon" onmouseover="previewCart()">cart <span class="cart_no" id="previewCartCapacity"></span></a>
+                                        <ul class="option-cart-item" id="previewCart">
+                                            <!-- Xem trước giỏ hàng tại đây-->
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="index.html">TRANG CHỦ</a></li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PHÂN LOẠI</a>
+                                            <div class="dropdown-menu mega-menu">
+                                                <div class="row">
+                                                    <ul class="mega-menu-links">
+                                                        <li><a href="productgird.html" onclick="setCategory('ALBUM')">Đĩa Nhạc</a></li>
+                                                        <li><a href="productgird.html" onclick="setCategory('MOVIE')">Đĩa Phim</a></li>
+                                                        <li><a href="productgird.html" onclick="setCategory('GAME')">Đĩa Game</a></li>
+                                                        <li><a href="productgird.html" onclick="setCategory('SOFT')">Đĩa Phần Mềm</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li><a href="productgird.html" onclick="setCategory('new')">MỚI NHẤT</a></li>
+                                        <li><a href="productgird.html" onclick="setCategory('hot')">BÁN CHẠY</a></li>
+                                        <li><a href="productgird.html">KHUYẾN MÃI</a></li>
+                                        <li><a href="service.html">DỊCH VỤ</a></li>
+                                        <li><a href="contact.html">LIÊN HỆ</a></li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix">
+                </div>
+                <div class="page-index">
+                    <div class="container">
+                        <p>
+                            TRANG CHỦ - DỊCH VỤ
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            <div class="container_fullwidth">
+                <div class="container">
+                    <div class="row">
+                        <div class="article-body">
+                            <p><strong>1. Giới thiệu</strong></p>
+                            <p>Chào mừng quý khách hàng đến với bangdiabanmoinha.vn.</p>
+                            <p>Chúng tôi là Cửa hàng băng đĩa có địa chỉ trụ sở tại 97 Man Thiên, phường Hiệp Phú, quận 9, Tp.Hồ Chí Minh, thành lập sàn giao dịch thương mại điện tử thông qua website www.bangdiabanmoinha.vn và đã được đăng ký chính thức với Bộ Công Thương Việt Nam.</p>
+                            <p>Khi quý khách hàng truy cập vào trang website của chúng tôi có nghĩa là quý khách đồng ý với các điều khoản này. Trang web có quyền thay đổi, chỉnh sửa, thêm hoặc lược bỏ bất kỳ phần nào trong Điều khoản mua bán hàng hóa này, vào bất cứ lúc nào. Các thay đổi có hiệu lực ngay khi được đăng trên trang web mà không cần thông báo trước. Và khi quý khách tiếp tục sử dụng trang web, sau khi các thay đổi về Điều khoản này được đăng tải, có nghĩa là quý khách chấp nhận với những thay đổi đó.</p>
+                            <p>Quý khách hàng vui lòng kiểm tra thường xuyên để cập nhật những thay đổi của chúng tôi.</p>
+                            <p><strong>2. Hướng dẫn sử dụng website</strong></p>
+                            <p>Khi vào web của chúng tôi, khách hàng phải đảm bảo đủ 18 tuổi, hoặc truy cập dưới sự giám sát của cha mẹ hay người giám hộ hợp pháp. Khách hàng đảm bảo có đầy đủ hành vi dân sự để thực hiện các giao dịch mua bán hàng hóa theo quy định hiện hành của pháp luật Việt Nam.</p>
+                            <p>Chúng tôi sẽ cấp một tài khoản (Account) sử dụng để khách hàng có thể mua sắm trên website bangdiabanmoinha.vn trong khuôn khổ Điều khoản và Điều kiện sử dụng đã đề ra.</p>
+                            <p>Quý khách hàng sẽ phải đăng ký tài khoản với thông tin xác thực về bản thân và phải cập nhật nếu có bất kỳ thay đổi nào. Mỗi người truy cập phải có trách nhiệm với mật khẩu, tài khoản và hoạt động của mình trên web. Hơn nữa, quý khách hàng phải thông báo cho chúng tôi biết khi tài khoản bị truy cập trái phép. Chúng tôi không chịu bất kỳ trách nhiệm nào, dù trực tiếp hay gián tiếp, đối với những thiệt hại hoặc mất mát gây ra do quý khách không tuân thủ quy định.</p>
+                            <p>Nghiêm cấm sử dụng bất kỳ phần nào của trang web này với mục đích thương mại hoặc nhân danh bất kỳ đối tác thứ ba nào nếu không được chúng tôi cho phép bằng văn bản. Nếu vi phạm bất cứ điều nào trong đây, chúng tôi sẽ hủy tài khoản của khách mà không cần báo trước.</p>
+                            <p>Trong suốt quá trình đăng ký, quý khách đồng ý nhận email quảng cáo từ website. Nếu không muốn tiếp tục nhận mail, quý khách có thể từ chối bằng cách nhấp vào đường link ở dưới cùng trong mọi email quảng cáo.</p>
+                            <p><strong>3. Ý kiến của khách hàng</strong></p>
+                            <p>Tất cả nội dung trang web và ý kiến phê bình của quý khách đều là tài sản của chúng tôi. Nếu chúng tôi phát hiện bất kỳ thông tin giả mạo nào, chúng tôi sẽ khóa tài khoản của quý khách ngay lập tức hoặc áp dụng các biện pháp khác theo quy định của pháp luật Việt Nam.</p>
+                            <p><strong>4. Chấp nhận đơn hàng và giá cả</strong></p>
+                            <p>Chúng tôi có quyền từ chối hoặc hủy đơn hàng của quý khách vì bất kỳ lý do gì liên quan đến lỗi kỹ thuật, hệ thống một cách khách quan vào bất kỳ lúc nào.</p>
+                            <p>Chúng tôi cam kết sẽ cung cấp thông tin giá cả chính xác nhất cho người tiêu dùng. Tuy nhiên, đôi lúc vẫn có sai sót xảy ra, ví dụ như trường hợp giá sản phẩm không hiển thị chính xác trên trang web hoặc sai giá, tùy theo từng trường hợp chúng tôi sẽ liên hệ hướng dẫn hoặc thông báo hủy đơn hàng đó cho quý khách. Chúng tôi cũng có quyền từ chối hoặc hủy bỏ bất kỳ đơn hàng nào dù đơn hàng đó đã hay chưa được xác nhận hoặc đã thanh toán.</p>
+                            <p><strong>5. Thay đổi hoặc hủy bỏ giao dịch tại bangdiabanmoinha.vn</strong></p>
+                            <p>Trong mọi trường hợp, khách hàng đều có quyền chấm dứt giao dịch nếu đã thực hiện các biện pháp sau đây:</p>
+                            <ul>
+                                <li>Thông báo cho bangdiabanmoinha.vn về việc hủy giao dịch qua đường dây nóng (hotline) 1900-9999 </li>
+                                <li>Trả lại hàng hoá đã nhận nhưng chưa sử dụng hoặc hưởng bất kỳ lợi ích nào từ hàng hóa đó (theo quy định của chính sách đổi trả hàng)</li>
+                            </ul>
+                            <br>
+                            <p><strong>6. Giải quyết hậu quả do lỗi nhập sai thông tin tại bangdiabanmoinha.vn</strong></p>
+                            <p>Khách hàng có trách nhiệm cung cấp thông tin đầy đủ và chính xác khi tham gia giao dịch tại bangdiabanmoinha.vn. Trong trường hợp khách hàng nhập sai thông tin và gửi vào trang TMĐT bangdiabanmoinha.vn, bangdiabanmoinha.vn có quyền từ chối thực hiện giao dịch.</p>
+                            <p>Trong trường hợp sai thông tin phát sinh từ phía bangdiabanmoinha.vn mà bangdiabanmoinha.vn có thể chứng minh đó là lỗi của hệ thống hoặc từ bên thứ ba (sai giá sản phẩm, sai xuất xứ, …), bangdiabanmoinha.vn sẽ đền bù cho khách hàng một mã giảm giá cho các lần mua sắm tiếp theo với mệnh giá tùy từng trường hợp cụ thể và có quyền không thực hiện giao dịch bị lỗi.</p>
+                            <p><strong>7. Thương hiệu và bản quyền</strong></p>
+                            <p>Mọi quyền sở hữu trí tuệ (đã đăng ký hoặc chưa đăng ký), nội dung thông tin và tất cả các thiết kế, văn bản, đồ họa, phần mềm, hình ảnh, video, âm nhạc, âm thanh, biên dịch phần mềm, mã nguồn và phần mềm cơ bản đều là tài sản của chúng tôi. Toàn bộ nội dung của trang web được bảo vệ bởi luật bản quyền của Việt Nam và các công ước quốc tế. Bản quyền đã được bảo lưu.</p>
+                            <p><strong>8. Quyền pháp lý</strong></p>
+                            <p>Các điều kiện, điều khoản và nội dung của trang web này được điều chỉnh bởi luật pháp Việt Nam và Tòa án có thẩm quyền tại Việt Nam sẽ giải quyết bất kỳ tranh chấp nào phát sinh từ việc sử dụng trái phép trang web này.</p>
+                            <p><strong>9. Quy định về bảo mật</strong></p>
+                            <p>Trang web của chúng tôi coi trọng việc bảo mật thông tin và sử dụng các biện pháp tốt nhất bảo vệ thông tin và việc thanh toán của quý khách. Thông tin của quý khách trong quá trình thanh toán sẽ được mã hóa để đảm bảo an toàn. Sau khi quý khách hoàn thành quá trình đặt hàng, quý khách sẽ thoát khỏi chế độ an toàn.</p>
+                            <p>Quý khách không được sử dụng bất kỳ chương trình, công cụ hay hình thức nào khác để can thiệp vào hệ thống hay làm thay đổi cấu trúc dữ liệu. Trang web cũng nghiêm cấm việc phát tán, truyền bá hay cổ vũ cho bất kỳ hoạt động nào nhằm can thiệp, phá hoại hay xâm nhập vào dữ liệu của hệ thống. Cá nhân hay tổ chức vi phạm sẽ bị tước bỏ mọi quyền lợi cũng như sẽ bị truy tố trước pháp luật nếu cần thiết.</p>
+                            <p>Mọi thông tin giao dịch sẽ được bảo mật ngoại trừ trong trường hợp cơ quan pháp luật yêu cầu.</p>
+                            <p><strong>10. Giải quyết tranh chấp</strong></p>
+                            <p>Bất kỳ tranh cãi, khiếu nại hoặc tranh chấp phát sinh từ hoặc liên quan đến giao dịch tại bangdiabanmoinha.vn hoặc các Quy định và Điều kiện này đều sẽ được giải quyết bằng hình thức thương lượng, hòa giải, trọng tài và/hoặc Tòa án theo Luật bảo vệ Người tiêu dùng Chương 4 về Giải quyết tranh chấp giữa người tiêu dùng và tổ chức, cá nhân kinh doanh hàng hóa, dịch vụ.</p>
+                            <p><strong>11. Luật pháp và thẩm quyền tại Lãnh thổ Việt Nam</strong></p>
+                            <p>Tất cả các Điều Khoản và Điều Kiện này và Hợp Đồng (và tất cả nghĩa vụ phát sinh ngoài hợp đồng hoặc có liên quan) sẽ bị chi phối và được hiểu theo luật pháp của Việt Nam. Nếu có tranh chấp phát sinh bởi các Quy định Sử dụng này, quý khách hàng có quyền gửi khiếu nại/khiếu kiện lên Tòa án có thẩm quyền tại Việt Nam để giải quyết.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="footer">
+                <div class="footer-info">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="footer-logo"><a href="#"><img src="images/Logo1.PNG" alt=""></a></div>
+                            </div>
+                            <div class="col-md-5 col-sm-6">
+                                <h4 class="title">LIÊN HỆ <strong>VỚI CHÚNG TÔI</strong></h4>
+                                <p>97 Man Thiên, phường Hiệp Phú, quận 9, Hồ Chí Minh</p>
+                                <p>SĐT : 0909090909</p>
+                                <p>Email : bangdiabanmoinha@gmail.com</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 class="title"><strong>Newsletter </strong></h4>
+                                <p>Đăng kí ngay để nhận được các thông tin khuyến mãi và ưu đãi đặc biệt từ:<strong> bangdiabanmoinha.com </strong> </p>
+                                <form class="newsletter">
+                                    <input type="text" name="" placeholder="Email của bạn....">
+                                    <input type="submit" value="OK" class="button">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-info">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>Copyright © Your Website 2017 <a href="#"></a>. </p>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="social-icon">
+                                    <li><a href="#" class="linkedin"></a></li>
+                                    <li><a href="#" class="google-plus"></a></li>
+                                    <li><a href="#" class="twitter"></a></li>
+                                    <li><a href="#" class="facebook"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript==================================================-->
+        <script type="text/javascript" src="js/jquery-1.10.2.min.js">
+        </script>
+        <script type="text/javascript" src="js/bootstrap.min.js">
+        </script>
+        <script defer src="js/jquery.flexslider.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.carouFredSel-6.2.1-packed.js">
+        </script>
+        <script type="text/javascript" src='js/jquery.elevatezoom.js'>
+        </script>
+        <script type="text/javascript" src="js/script.min.js" >
+        </script>
+        <script>
+            if (!sessionStorage.cartCapacity || sessionStorage.cartCapacity == "0")
+            {
+                document.getElementById("previewCartCapacity").innerHTML = "0";
+                removeAllProductsFromCart();
+            } else
+                document.getElementById("previewCartCapacity").innerHTML = sessionStorage.cartCapacity;
+        </script>
+    </body>
+</html>

@@ -36,8 +36,20 @@
                                     <div class="col-md-7 col-lg-7"></div>
                                     <div class="col-md-5 col-lg-5">
                                         <ul class="usermenu">
-                                            <li><a href="checkout.html" class="log">Đăng nhập</a></li>
-                                            <li><a href="checkout2.html" class="reg">Đăng kí</a></li>
+                                            <li><a href="#" class="log" id="loginButton">Đăng nhập</a></li>
+                                            <li><a href="#" class="reg" id="registerButton">Đăng kí</a></li>
+                                            <script>
+                                                if (!sessionStorage.username || sessionStorage.username == "undefined") {
+                                                    document.getElementById('loginButton').innerHTML = "Đăng nhập";
+                                                    document.getElementById("loginButton").setAttribute("href", "checkout.html");
+                                                    document.getElementById('registerButton').innerHTML = "Đăng ký";
+                                                    document.getElementById("registerButton").setAttribute("href", "checkout2.html");
+                                                } else {
+                                                    document.getElementById("loginButton").innerHTML = sessionStorage.username;
+                                                    document.getElementById("registerButton").innerHTML = "Đăng xuất";
+                                                    document.getElementById("registerButton").setAttribute("onclick", "logout()");
+                                                }
+                                            </script>
                                         </ul>
                                     </div>
                                 </div>
@@ -49,35 +61,9 @@
                                         <form><input class="search-submit" type="submit" value=""><input class="search-input" placeholder="Nhập sp bạn muốn tìm..." type="text" value="" name="search"></form>
                                     </li>
                                     <li class="option-cart">
-                                        <a href="cart.html" class="cart-icon">cart <span class="cart_no">02</span></a>
-                                        <ul class="option-cart-item">
-                                            <li>
-                                                <div class="cart-item">
-                                                    <div class="image"><img src="images/logo1.jpg" alt=""></div>
-                                                    <div class="item-description">
-                                                        <p class="name">Từ Đó Khôn Nguôi - Thái Hiền</p>
-                                                        <p>Định dạng: <span class="light-red">Audio CD</span><br>Số lượng: <span class="light-red">01</span></p>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="price">117.000VNĐ</p>
-                                                        <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="cart-item">
-                                                    <div class="image"><img src="images/logo1.jpg" alt=""></div>
-                                                    <div class="item-description">
-                                                        <p class="name">The Smurfs 2 - Xì Trum 2</p>
-                                                        <p>Định dạng: <span class="light-red">DVD</span><br>Số lượng: <span class="light-red">01</span></p>
-                                                    </div>
-                                                    <div class="right">
-                                                        <p class="price">30.000VNĐ</p>
-                                                        <a href="#" class="remove"><img src="images/remove.png" alt="remove"></a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li><span class="total">Tổng <strong>147.000VND</strong></span><button class="checkout" onClick="location.href = 'cart.html'">Mua ngay</button></li>
+                                        <a href="cart.html" class="cart-icon" onmouseover="previewCart()">cart <span class="cart_no" id="previewCartCapacity"></span></a>
+                                        <ul class="option-cart-item" id="previewCart">
+                                            <!-- Xem trước giỏ hàng tại đây-->
                                         </ul>
                                     </li>
                                 </ul>
@@ -108,17 +94,7 @@
                                         <li><a href="productgird.html" onclick="setCategory('new')">MỚI NHẤT</a></li>
                                         <li><a href="productgird.html" onclick="setCategory('hot')">BÁN CHẠY</a></li>
                                         <li><a href="productgird.html">KHUYẾN MÃI</a></li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">DỊCH VỤ</a>
-                                            <div class="dropdown-menu mega-menu">
-                                                <div class="row">
-                                                    <ul class="mega-menu-links">
-                                                        <li><a href="productgird.html">Mua bán-Cho thuê</a></li>
-                                                        <li><a href="productgird.html">In-Ghi đĩa</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        <li><a href="service.html">DỊCH VỤ</a></li>
                                         <li><a href="contact.html">LIÊN HỆ</a></li>
                                     </ul>
                                 </div>
@@ -145,12 +121,12 @@
                             <div class="products-details">
                                 <div class="preview_image">
                                     <div class="preview-small">
-                                        <img id="zoom_03" src="images/products/medium/Musics/Jay_3.jpg" data-zoom-image="images/products/Large/Musics/Jay_3.jpg" alt="">
+                                        <img id="zoom_03" src=" " data-zoom-image="images/products/Large/Musics/Jay_3.jpg" alt="">
                                     </div>
                                 </div>
                                 <div class="products-description">
                                     <h5 class="name" id="currentProductName">
-                                        Từ Đó Khôn Nguôi - Thái Hiền
+                                        <!-- Tên sản phẩm được chọn -->
                                     </h5>
                                     <p>
                                         <img alt="" src="images/star.png">
@@ -161,27 +137,23 @@
                                     <p>
                                         NSX:
                                         <span class=" light-red" id="currentProductPublisher">
-                                            Vafaco
+                                            <!-- Tên nhà sản xuất -->
                                         </span>
                                     </p>
                                     <p>
                                         Định dạng:
                                         <span class=" light-red" id="currentProductType">
-                                            Audio CD
+                                           <!-- Tên định dạng của sản phẩm -->
                                         </span>
                                     </p>
                                     <p id="currentProductDescription">
-                                        CD gồm 10 ca khúc: Tháng 6 trời mưa (Hoàng Thanh Tâm), Tóc mây (Văn Phụng), Tuổi 13, Tình khúc tháng 6 (Ngô Thụy Miên), Từ đó khôn nguôi (Tuấn Khanh)… được soạn hòa âm bởi anh trai cô – nhạc sĩ Duy Cường. Đáng chú ý là chùm bài hát Trịnh Công Sơn (Ru
-                                        ta ngậm ngùi, Ru em từng ngón xuân nồng, Nhìn những mùa thu đi…) được Thái Hiền thể hiện rất hay, lộng lẫy, đắm say trong kỹ thuật hát vocalise (kỹ thuật thanh nhạc không lời).
+                                        <!-- Mô tả sản phẩm  -->
                                     </p>
                                     <hr class="border">
                                     <div class="price">
                                         Giá:
                                         <span class="new_price" id="currentProductPrice">
-                                            117.000
-                                            <sup>
-                                                VNĐ
-                                            </sup>
+                                         <!-- Giá của sản phẩm -->
                                         </span>
                                         <span class="old_price">
                                             120.000
@@ -381,463 +353,15 @@
                                     </a>
                                 </div>
                                 <ul id="hot">
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-md-4 col-sm-4">
-                                                <div class="products">
-                                                    <div class="offer">
-                                                        - %20
-                                                    </div>
-                                                    <div class="thumbnail">
-                                                        <img src="images/products/small/Games/products-01.jpg" alt="Product Name">
-                                                    </div>
-                                                    <div class="productname">
-                                                        Nhớ Người Yêu - Trường Vũ
-                                                    </div>
-                                                    <h4 class="price">
-                                                        48.000VNĐ
-                                                    </h4>
-                                                    <div class="button_group">
-                                                        <button class="button add-cart" type="button" onClick="location.href = 'cart.html'">
-                                                            Thêm vào giỏ
-                                                        </button>
-                                                        <button class="button compare" type="button">
-                                                            <i class="fa fa-exchange">
-                                                            </i>
-                                                        </button>
-                                                        <button class="button wishlist" type="button">
-                                                            <i class="fa fa-heart-o">
-                                                            </i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4">
-                                                <div class="products">
-                                                    <div class="thumbnail">
-                                                        <img src="images/products/small/Movies/GOGalaxy.jpg" alt="Product Name">
-                                                    </div>
-                                                    <div class="productname">
-                                                        Nhớ Người Yêu - Trường Vũ
-                                                    </div>
-                                                    <h4 class="price">
-                                                        48.000VNĐ
-                                                    </h4>
-                                                    <div class="button_group">
-                                                        <button class="button add-cart" type="button" onClick="location.href = 'cart.html'">
-                                                            Thêm vào giỏ
-                                                        </button>
-                                                        <button class="button compare" type="button">
-                                                            <i class="fa fa-exchange">
-                                                            </i>
-                                                        </button>
-                                                        <button class="button wishlist" type="button">
-                                                            <i class="fa fa-heart-o">
-                                                            </i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4">
-                                                <div class="products">
-                                                    <div class="offer">
-                                                        MỚI
-                                                    </div>
-                                                    <div class="thumbnail">
-                                                        <img src="images/products/small/Musics/BSB_Millenium.jpg" alt="Product Name">
-                                                    </div>
-                                                    <div class="productname">
-                                                        Nhớ Người Yêu - Trường Vũ
-                                                    </div>
-                                                    <h4 class="price">
-                                                        48.000VNĐ
-                                                    </h4>
-                                                    <div class="button_group">
-                                                        <button class="button add-cart" type="button" onClick="location.href = 'cart.html'">
-                                                            Thêm vào giỏ
-                                                        </button>
-                                                        <button class="button compare" type="button">
-                                                            <i class="fa fa-exchange">
-                                                            </i>
-                                                        </button>
-                                                        <button class="button wishlist" type="button">
-                                                            <i class="fa fa-heart-o">
-                                                            </i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-md-4 col-sm-4">
-                                                <div class="products">
-                                                    <div class="thumbnail">
-                                                        <img src="images/products/small/Musics/BSB_Millenium.jpg" alt="Product Name">
-                                                    </div>
-                                                    <div class="productname">
-                                                        Nhớ Người Yêu - Trường Vũ
-                                                    </div>
-                                                    <h4 class="price">
-                                                        48.000VNĐ
-                                                    </h4>
-                                                    <div class="button_group">
-                                                        <button class="button add-cart" type="button" onClick="location.href = 'cart.html'">
-                                                            Thêm vào giỏ
-                                                        </button>
-                                                        <button class="button compare" type="button">
-                                                            <i class="fa fa-exchange">
-                                                            </i>
-                                                        </button>
-                                                        <button class="button wishlist" type="button">
-                                                            <i class="fa fa-heart-o">
-                                                            </i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4">
-                                                <div class="products">
-                                                    <div class="offer">
-                                                        New
-                                                    </div>
-                                                    <div class="thumbnail">
-                                                        <img src="images/products/small/Softwares/AvastIS.jpg" alt="Product Name">
-                                                    </div>
-                                                    <div class="productname">
-                                                        Nhớ Người Yêu - Trường Vũ
-                                                    </div>
-                                                    <h4 class="price">
-                                                        48.000VNĐ
-                                                    </h4>
-                                                    <div class="button_group">
-                                                        <button class="button add-cart" type="button" onClick="location.href = 'cart.html'">
-                                                            Thêm vào giỏ
-                                                        </button>
-                                                        <button class="button compare" type="button">
-                                                            <i class="fa fa-exchange">
-                                                            </i>
-                                                        </button>
-                                                        <button class="button wishlist" type="button">
-                                                            <i class="fa fa-heart-o">
-                                                            </i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4">
-                                                <div class="products">
-                                                    <div class="offer">
-                                                        - %20
-                                                    </div>
-                                                    <div class="thumbnail">
-                                                        <img src="images/products/small/Movies/IT.jpg" alt="Product Name">
-                                                    </div>
-                                                    <div class="productname">
-                                                        Nhớ Người Yêu - Trường Vũ
-                                                    </div>
-                                                    <h4 class="price">
-                                                        48.000VNĐ
-                                                    </h4>
-                                                    <div class="button_group">
-                                                        <button class="button add-cart" type="button" onClick="location.href = 'cart.html'">
-                                                            Thêm vào giỏ
-                                                        </button>
-                                                        <button class="button compare" type="button">
-                                                            <i class="fa fa-exchange">
-                                                            </i>
-                                                        </button>
-                                                        <button class="button wishlist" type="button">
-                                                            <i class="fa fa-heart-o">
-                                                            </i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="row">
-                                            <div class="col-md-4 col-sm-4">
-                                                <div class="products">
-                                                    <div class="offer">
-                                                        New
-                                                    </div>
-                                                    <div class="thumbnail">
-                                                        <img src="images/products/small/Musics/Eminem_1.jpg" alt="Product Name">
-                                                    </div>
-                                                    <div class="productname">
-                                                        Nhớ Người Yêu - Trường Vũ
-                                                    </div>
-                                                    <h4 class="price">
-                                                        48.000VNĐ
-                                                    </h4>
-                                                    <div class="button_group">
-                                                        <button class="button add-cart" type="button" onClick="location.href = 'cart.html'">
-                                                            Thêm vào giỏ
-                                                        </button>
-                                                        <button class="button compare" type="button">
-                                                            <i class="fa fa-exchange">
-                                                            </i>
-                                                        </button>
-                                                        <button class="button wishlist" type="button">
-                                                            <i class="fa fa-heart-o">
-                                                            </i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4">
-                                                <div class="products">
-                                                    <div class="offer">
-                                                        - %20
-                                                    </div>
-                                                    <div class="thumbnail">
-                                                        <img src="images/products/small/Musics/BSB_NeverGone.jpg" alt="Product Name">
-                                                    </div>
-                                                    <div class="productname">
-                                                        Nhớ Người Yêu - Trường Vũ
-                                                    </div>
-                                                    <h4 class="price">
-                                                        48.000VNĐ
-                                                    </h4>
-                                                    <div class="button_group">
-                                                        <button class="button add-cart" type="button" onClick="location.href = 'cart.html'">
-                                                            Thêm vào giỏ
-                                                        </button>
-                                                        <button class="button compare" type="button">
-                                                            <i class="fa fa-exchange">
-                                                            </i>
-                                                        </button>
-                                                        <button class="button wishlist" type="button">
-                                                            <i class="fa fa-heart-o">
-                                                            </i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4">
-                                                <div class="products">
-                                                    <div class="thumbnail">
-                                                        <img src="images/products/small/Softwares/Kaspersky.jpg" alt="Product Name">
-                                                    </div>
-                                                    <div class="productname">
-                                                        Nhớ Người Yêu - Trường Vũ
-                                                    </div>
-                                                    <h4 class="price">
-                                                        48.000VNĐ
-                                                    </h4>
-                                                    <div class="button_group">
-                                                        <button class="button add-cart" type="button" onClick="location.href = 'cart.html'">
-                                                            Thêm vào giỏ
-                                                        </button>
-                                                        <button class="button compare" type="button">
-                                                            <i class="fa fa-exchange">
-                                                            </i>
-                                                        </button>
-                                                        <button class="button wishlist" type="button">
-                                                            <i class="fa fa-heart-o">
-                                                            </i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    <!-- Tên các sản phẩm bán chạy hiện tại -->
                                 </ul>
                             </div>
                             <div class="clearfix">
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="special-deal leftbar">
-                                <h4 class="title">
-                                    Sản phẩm
-                                    <strong>
-                                        cùng loại
-                                    </strong>
-                                </h4>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/Boyzone.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/BSB_Millenium.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/BSB_NeverGone.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/Eminem_1.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/Eminem_2.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/Jay_1.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/Jay_2.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/JT_20Exp.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/Justin_B.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/NSYNC.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/BSB_Millenium.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
-                                <div class="special-item">
-                                    <div class="product-image">
-                                        <a href="#">
-                                            <img src="images/products/thum/Musics/Eminem_2.jpg" alt="">
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <p>
-                                            Nhớ Người Yêu - Trường Vũ
-                                        </p>
-                                        <h5 class="price">
-                                            48.000VNĐ
-                                        </h5>
-                                    </div>
-                                </div>
+                            <div class="special-deal leftbar" id="sameCategoryProducts">
+                                <!-- Các sản phẩm cùng loại -->
                             </div>
                             <div class="clearfix">
                             </div>
@@ -989,7 +513,14 @@
         <script>
             //alert(sessionStorage.currentProductID);
             getCurrentProductInfo();
-
+            loadHotProducts();
+            loadSameCategoryProducts();
+            if (!sessionStorage.cartCapacity || sessionStorage.cartCapacity == "0")
+            {
+                document.getElementById("previewCartCapacity").innerHTML = "0";
+                removeAllProductsFromCart();
+            } else
+                document.getElementById("previewCartCapacity").innerHTML = sessionStorage.cartCapacity;
         </script>
     </body>
 
