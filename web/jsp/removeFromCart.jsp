@@ -18,7 +18,11 @@
 <%@page contentType="application/json" pageEncoding="UTF-8"%>
 <%
     String productID = request.getParameter("id");
-    Cart.removeProductFromCart(productID);
+    if (productID.equals("all"))
+        Cart.getWishProducts().clear();
+    else
+        Cart.removeProductFromCart(productID);
+    out.print(Cart.getWishProducts().size());
     /*String currentCart = "";
     for(Product currentProduct : Cart.getWishProducts().values())
     {

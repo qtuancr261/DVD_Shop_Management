@@ -11,8 +11,8 @@
 <%@page import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    String emailKH = request.getParameter("userEmailLogin");
-    String matkhauKH = request.getParameter("userPWDLogin");
+    String emailKH = request.getParameter("id");
+    String matkhauKH = request.getParameter("pwd");
     String matkhauKHDB = "";
     //Phải thêm thư viện MySQL vào project trước khi nạp Driver
     //Nạp Driver của MySQL
@@ -27,7 +27,7 @@
     ResultSet record = stm.executeQuery(queryStm);
     if (record.next())
     {
-        response.sendRedirect("../index.html");
+        out.print("OK");
     } else
     {
         out.print("ERORR");

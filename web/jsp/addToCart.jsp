@@ -17,8 +17,9 @@
 <%@page contentType="application/json" pageEncoding="UTF-8"%>
 <%
     String productID = request.getParameter("id");
-    int num = Integer.parseInt(request.getParameter("num"));
+    int num = Integer.parseInt(request.getParameter("num"));        
     Cart.addProductToCart(productID, num);
+    out.print(Cart.getWishProducts().size());
     /*String currentCart = "";
     for(Product currentProduct : Cart.getWishProducts().values())
     {
